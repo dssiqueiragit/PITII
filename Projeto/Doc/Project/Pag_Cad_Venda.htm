@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cadastro de Venda</title>
+<link rel="stylesheet" type="text/css" href="../css/StyleDoc.css" />
+</head>
+
+<body>
+<div class="properties">
+    <h2> Título: <span>Cadastro de Venda</span></h2>	
+    <table>
+      <tr><th>Nome: </th><td>DataPageModule</td></tr>
+      <tr><th>Descrição</th><td>Página de Dados referente à tabela TB_VENDA</td></tr>				
+      <tr><th>Permite Inclusão: </th><td>True</td></tr>
+      <tr><th>Permite Edição: </th><td>True</td></tr>
+      <tr><th>Permite Deleção: </th><td>True</td></tr>
+      <tr><th>Banco de Dados: </th><td>DbCupcake</td></tr>
+      <tr><th>Tabela Básica: </th><td>TB_VENDA</td></tr>
+      <tr><th>Provider: </th><td>Pag_Cad_Venda</td></tr>
+      <tr><th>Index: </th><td>PK_TB_VENDA</td></tr>
+    </table>
+   
+       <h3>Campos</h3>
+	<table>
+      <tr><th>Nome: </th><td>DatePicker_DATA_VENDA</td></tr>
+      <tr><th>Campo Relacionado: </th><td>DATA_VENDA</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(DATA_VENDA))}{ServerValidation =(CheckNotEmpty(DATA_VENDA))}</td></tr>	
+      <tr><th>Mensagem: </th><td>DATA_VENDA não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>ComboBox_ID_CLIENTE</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_LOGIN</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(LOGIN_USER_LOGIN))}{ServerValidation =(CheckNotEmpty(LOGIN_USER_LOGIN))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Cliente não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_OBS_VENDA</td></tr>
+      <tr><th>Campo Relacionado: </th><td>OBS_VENDA</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>ComboBox1</td></tr>
+      <tr><th>Campo Relacionado: </th><td>ENTREGA_VENDA</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(ENTREGA_VENDA))}{ServerValidation =(CheckNotEmpty(ENTREGA_VENDA))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Entrega não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_TOTAL_VENDA</td></tr>
+      <tr><th>Campo Relacionado: </th><td>TOTAL_VENDA</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+</div>
+
+	<div class="properties">                 
+		<h3>Processos:</h3>
+		<table>
+		  <tr><th>Título: </th><td>Novo_processo</td></tr>	
+		  <tr><th>Condição Direta: </th><td></td></tr>	
+		  <tr><th>Formula Direta: </th><td>=(TOTAL_VENDA + ([TABELA NAO ENCONTRADA] * [TABELA NAO ENCONTRADA] ) )</td></tr>
+		  <tr><th>Executa Processo antes de Salvar: </th><td>False</td></tr>	
+		  <tr><th>Condição Inversa: </th><td></td></tr>	
+		  <tr><th>Formula Inversa: </th><td>=(TOTAL_VENDA - ([TABELA NAO ENCONTRADA] * [TABELA NAO ENCONTRADA] ) )</td></tr>
+		  <tr><th>Campo Alvo: </th><td>TOTAL_VENDA</td></tr>
+		</table>
+		</br>
+		<table>
+		  <tr><th>Título: </th><td>Total</td></tr>	
+		  <tr><th>Condição Direta: </th><td></td></tr>	
+		  <tr><th>Formula Direta: </th><td>=([AUX_TB_VENDA].[TOTAL_VENDA] + ( [Grid1_TB_VENDA_ITEM].[QTDE_VENDA_ITEM] * [Grid1_TB_VENDA_ITEM].[VALOR_VENDA_ITEM] ) )</td></tr>
+		  <tr><th>Executa Processo antes de Salvar: </th><td>False</td></tr>	
+		  <tr><th>Condição Inversa: </th><td></td></tr>	
+		  <tr><th>Formula Inversa: </th><td>=([AUX_TB_VENDA].[TOTAL_VENDA] - ( [Grid1_TB_VENDA_ITEM].[QTDE_VENDA_ITEM] * [Grid1_TB_VENDA_ITEM].[VALOR_VENDA_ITEM] ) )</td></tr>
+		  <tr><th>Campo Alvo: </th><td>TOTAL_VENDA</td></tr>
+		</table>
+		</br>
+		<table>
+		  <tr><th>Título: </th><td>Pendente</td></tr>	
+		  <tr><th>Condição Direta: </th><td></td></tr>	
+		  <tr><th>Formula Direta: </th><td>0</td></tr>
+		  <tr><th>Executa Processo antes de Salvar: </th><td>False</td></tr>	
+		  <tr><th>Condição Inversa: </th><td></td></tr>	
+		  <tr><th>Formula Inversa: </th><td></td></tr>
+		  <tr><th>Campo Alvo: </th><td>PENDENTE_VENDA</td></tr>
+		</table>
+		</br>
+	</div>
+</body>
+</html>

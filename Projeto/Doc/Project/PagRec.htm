@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Contas a Receber</title>
+<link rel="stylesheet" type="text/css" href="../css/StyleDoc.css" />
+</head>
+
+<body>
+<div class="properties">
+    <h2> Título: <span>Contas a Receber</span></h2>	
+    <table>
+      <tr><th>Nome: </th><td>DataPageModule</td></tr>
+      <tr><th>Descrição</th><td>Página de Dados referente à tabela TB_CR</td></tr>				
+      <tr><th>Permite Inclusão: </th><td>True</td></tr>
+      <tr><th>Permite Edição: </th><td>True</td></tr>
+      <tr><th>Permite Deleção: </th><td>True</td></tr>
+      <tr><th>Banco de Dados: </th><td>DbCupcake</td></tr>
+      <tr><th>Tabela Básica: </th><td>TB_CR</td></tr>
+      <tr><th>Provider: </th><td>PagRec</td></tr>
+      <tr><th>Index: </th><td>PK_TB_CR</td></tr>
+    </table>
+   
+       <h3>Campos</h3>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_ID_CR</td></tr>
+      <tr><th>Campo Relacionado: </th><td>ID_CR</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>DatePicker_DATA_CR</td></tr>
+      <tr><th>Campo Relacionado: </th><td>DATA_CR</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(DATA_CR))}{ServerValidation =(CheckNotEmpty(DATA_CR))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Data não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>ComboBox_LOGIN_USER_LOGIN</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_LOGIN</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(LOGIN_USER_LOGIN))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Cliente não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>ComboBox1</td></tr>
+      <tr><th>Campo Relacionado: </th><td>TPGTO_CR</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(TPGTO_CR))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Pagamento não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_ID_VENDA</td></tr>
+      <tr><th>Campo Relacionado: </th><td>ID_VENDA</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(ID_VENDA))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Venda não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadCheckBox_REC_CR</td></tr>
+      <tr><th>Campo Relacionado: </th><td>REC_CR</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_VALOR_CR</td></tr>
+      <tr><th>Campo Relacionado: </th><td>VALOR_CR</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(VALOR_CR))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Valor não pode ser vazio!</td></tr>
+	</table>
+	</br>
+</div>
+
+</body>
+</html>

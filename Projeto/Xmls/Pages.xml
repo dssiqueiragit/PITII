@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pages>
+	<Page Name="HomeAspx.aspx" Title="Home" />
+	<Page Name="Pag_Cad_Prod.aspx" Title="Cadastro de Produto" />
+	<Page Name="Pag_Cad_Venda.aspx" Title="Cadastro de Venda" />
+	<Page Name="TB_LOGIN_USER.aspx" Title="Cadastro" />
+	<Page Name="PagRec.aspx" Title="Contas a Receber" />
+</Pages>
