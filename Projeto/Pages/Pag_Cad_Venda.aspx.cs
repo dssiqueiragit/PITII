@@ -33,13 +33,14 @@ namespace PROJETO.DataPages
 		protected Pag_Cad_VendaPageProvider PageProvider;
 	
 
-		public DateTime ? DATA_VENDAField;
-		public string LOGIN_USER_LOGINField = "";
-		public string OBS_VENDAField = "";
-		public string ENTREGA_VENDAField = "";
 		public double TOTAL_VENDAField = 0;
+		public string ENTREGA_VENDAField = "";
 		public long ID_VENDAField = 0;
+		public string LOGIN_USER_LOGINField = "";
+		public DateTime ? DATA_VENDAField = null;
+		public string OBS_VENDAField = "";
 		public bool PENDENTE_VENDAField = false;
+		public string TIPO_PGTO_VENDAField = "";
 		
 		public override string FormID { get { return "36033"; } }
 		public override string TableName { get { return "TB_VENDA"; } }
@@ -139,12 +140,8 @@ namespace PROJETO.DataPages
 			// e dessa forma não teve alteração de usuário nos dados do formulário
 			if (PageState != FormStateEnum.Navigation && this.IsPostBack)
 			{
-				if (DatePicker_DATA_VENDA.SelectedDate != null) Item.SetFieldValue(Item["DATA_VENDA"], DatePicker_DATA_VENDA.SelectedDate.Value.ToString("dd/MM/yyyy"));
-				else Item.SetFieldValue(Item["DATA_VENDA"], DBNull.Value);
-				Item.SetFieldValue(Item["LOGIN_USER_LOGIN"], ComboBox_ID_CLIENTE.SelectedValue);
-				Item.SetFieldValue(Item["OBS_VENDA"], RadTextBox_OBS_VENDA.Text, false);
-				Item.SetFieldValue(Item["ENTREGA_VENDA"], ComboBox1.SelectedValue);
 				Item.SetFieldValue(Item["TOTAL_VENDA"], RadTextBox_TOTAL_VENDA.Text, false);
+				Item.SetFieldValue(Item["ENTREGA_VENDA"], ComboBox1.SelectedValue);
 			}
 			InitializeAlias(Item);
 		}
@@ -158,12 +155,8 @@ namespace PROJETO.DataPages
 			GeneralDataProviderItem Item = PageProvider.GetDataProviderItem(DataProvider);
 			if (PageState != FormStateEnum.Navigation)
 			{
-				if (DatePicker_DATA_VENDA.SelectedDate != null) Item.SetFieldValue(Item["DATA_VENDA"], DatePicker_DATA_VENDA.SelectedDate.Value.ToString("dd/MM/yyyy"));
-				else Item.SetFieldValue(Item["DATA_VENDA"], DBNull.Value);
-				Item.SetFieldValue(Item["LOGIN_USER_LOGIN"], ComboBox_ID_CLIENTE.SelectedValue);
-				Item.SetFieldValue(Item["OBS_VENDA"], RadTextBox_OBS_VENDA.Text, false);
-				Item.SetFieldValue(Item["ENTREGA_VENDA"], ComboBox1.SelectedValue);
 				Item.SetFieldValue(Item["TOTAL_VENDA"], RadTextBox_TOTAL_VENDA.Text, false);
+				Item.SetFieldValue(Item["ENTREGA_VENDA"], ComboBox1.SelectedValue);
 			}
 			else
 			{
@@ -186,18 +179,14 @@ namespace PROJETO.DataPages
 
 		public override void DefineStartScripts()
 		{
-			Utility.SetControlTabOnEnter(ComboBox_ID_CLIENTE);
-			Utility.SetControlTabOnEnter(RadTextBox_OBS_VENDA);
 			Utility.SetControlTabOnEnter(ComboBox1);
 		}
 		
 		public override void DisableEnableContros(bool Action)
 		{
-			DatePicker_DATA_VENDA.Enabled = Action;
-			ComboBox_ID_CLIENTE.Enabled = Action;
-			RadTextBox_OBS_VENDA.Enabled = Action;
-			ComboBox1.Enabled = Action;
 			RadTextBox_TOTAL_VENDA.Enabled = Action;
+			ComboBox1.Enabled = Action;
+			RadTextBox1.Enabled = Action;
 		}
 
 		/// <summary>
@@ -205,15 +194,12 @@ namespace PROJETO.DataPages
 		/// </summary>
 		public override void ClearFields(bool ShouldClearFields)
 		{
+				RadTextBox1.Text = "";
 			if (ShouldClearFields)
 			{
-				DatePicker_DATA_VENDA.SelectedDate = null;
-				ComboBox_ID_CLIENTE.SelectedIndex = -1;
-				ComboBox_ID_CLIENTE.Text = "";
-				RadTextBox_OBS_VENDA.Text = "";
+				RadTextBox_TOTAL_VENDA.Text = "";
 				ComboBox1.SelectedIndex = -1;
 				ComboBox1.Text = "";
-				RadTextBox_TOTAL_VENDA.Text = "";
 			}
 			if (!PageInsert && PageState == FormStateEnum.Navigation)
 				DisableEnableContros(false);				
@@ -223,20 +209,10 @@ namespace PROJETO.DataPages
 
 		public override void ShowInitialValues()
 		{
-			DatePicker_DATA_VENDA.SelectedDate = DateTime.Parse(EnvironmentVariable.ActualDateTime.ToString("dd/MM/yyyy"));
-			try
-			{
-				SelectComboItem(ComboBox_ID_CLIENTE, PageProvider.ComboBox_ID_CLIENTEProvider, EnvironmentVariable.LoggedLoginUser.ToString().ToString());
-			}
-			catch (Exception e)
-			{
-				ComboBox_ID_CLIENTE.SelectedValue = "";
-				ComboBox_ID_CLIENTE.Text = "";
-			}
 			try
 			{
 				ComboBox1.SelectedValue = ("1").ToString();
-				ComboBox1.Text = "RETIRAR NA LOJA";
+				ComboBox1.Text = PageProvider.ComboBox1Items.Where(p => p.Value == ("1").ToString()).FirstOrDefault().Text;
 			}
 			catch (Exception e)
 			{
@@ -253,16 +229,10 @@ namespace PROJETO.DataPages
 
 		public override void ShowFormulas()
 		{
-			Label_DATA_VENDA.Text = Label_DATA_VENDA.Text.Replace("<", "&lt;");
-			Label_DATA_VENDA.Text = Label_DATA_VENDA.Text.Replace(">", "&gt;");
-			Label_ID_CLIENTE.Text = Label_ID_CLIENTE.Text.Replace("<", "&lt;");
-			Label_ID_CLIENTE.Text = Label_ID_CLIENTE.Text.Replace(">", "&gt;");
-			Label_OBS_VENDA.Text = Label_OBS_VENDA.Text.Replace("<", "&lt;");
-			Label_OBS_VENDA.Text = Label_OBS_VENDA.Text.Replace(">", "&gt;");
-			Label_ENTREGA_VENDA.Text = Label_ENTREGA_VENDA.Text.Replace("<", "&lt;");
-			Label_ENTREGA_VENDA.Text = Label_ENTREGA_VENDA.Text.Replace(">", "&gt;");
 			Label_TOTAL_VENDA.Text = Label_TOTAL_VENDA.Text.Replace("<", "&lt;");
 			Label_TOTAL_VENDA.Text = Label_TOTAL_VENDA.Text.Replace(">", "&gt;");
+			Label_ENTREGA_VENDA.Text = Label_ENTREGA_VENDA.Text.Replace("<", "&lt;");
+			Label_ENTREGA_VENDA.Text = Label_ENTREGA_VENDA.Text.Replace(">", "&gt;");
 		}
 		
 		/// <summary>
@@ -274,42 +244,16 @@ namespace PROJETO.DataPages
 			{
 				if (Item != null)
 				{
-					DatePicker_DATA_VENDA.SelectedDate = Convert.ToDateTime(Item["DATA_VENDA"].GetFormattedValue("dd/MM/yyyy"));
+					RadTextBox_TOTAL_VENDA.Text = Item["TOTAL_VENDA"].GetFormattedValue().Replace(".",",");
 				}
 				else
 				{
-					DatePicker_DATA_VENDA.SelectedDate = null;
+					RadTextBox_TOTAL_VENDA.Text = "";
 				}
 			}
 			catch
 			{
-				DatePicker_DATA_VENDA.SelectedDate = null;
-			}
-			try
-			{
-				string Val = Item["LOGIN_USER_LOGIN"].GetFormattedValue();
-				SelectComboItem(ComboBox_ID_CLIENTE, PageProvider.ComboBox_ID_CLIENTEProvider, Val);
-				ComboBox_ID_CLIENTE.Attributes.Add("AllowFilter", "False");
-			}
-			catch
-			{
-				ComboBox_ID_CLIENTE.SelectedValue = "";
-				ComboBox_ID_CLIENTE.Text = "";
-			}
-			try
-			{
-				if (Item != null)
-				{
-					RadTextBox_OBS_VENDA.Text = Item["OBS_VENDA"].GetFormattedValue();
-				}
-				else
-				{
-					RadTextBox_OBS_VENDA.Text = "";
-				}
-			}
-			catch
-			{
-				RadTextBox_OBS_VENDA.Text = "";
+				RadTextBox_TOTAL_VENDA.Text = "";
 			}
 			try
 			{
@@ -328,16 +272,16 @@ namespace PROJETO.DataPages
 			{
 				if (Item != null)
 				{
-					RadTextBox_TOTAL_VENDA.Text = Item["TOTAL_VENDA"].GetFormattedValue().Replace(".",",");
+					RadTextBox1.Text = Item["ID_VENDA"].GetFormattedValue();
 				}
 				else
 				{
-					RadTextBox_TOTAL_VENDA.Text = "";
+					RadTextBox1.Text = "";
 				}
 			}
 			catch
 			{
-				RadTextBox_TOTAL_VENDA.Text = "";
+				RadTextBox1.Text = "";
 			}
 			InitializePageContent();
 			base.DefinePageContent(Item);
@@ -371,46 +315,16 @@ namespace PROJETO.DataPages
 			{
 				if (Item != null)
 				{
-					DATA_VENDAField = Convert.ToDateTime(Item["DATA_VENDA"].GetFormattedValue("dd/MM/yyyy"));
+					TOTAL_VENDAField = double.Parse(Item["TOTAL_VENDA"].GetFormattedValue().Replace(".",","));
 				}
 				else
 				{
-					DATA_VENDAField = null;
+					TOTAL_VENDAField = 0;
 				}
 			}
 			catch
 			{
-				DATA_VENDAField = null;
-			}
-			try
-			{
-				if (Item != null)
-				{
-					LOGIN_USER_LOGINField = Item["LOGIN_USER_LOGIN"].GetFormattedValue();
-				}
-				else
-				{
-					LOGIN_USER_LOGINField = "";
-				}
-			}
-			catch
-			{
-				LOGIN_USER_LOGINField = "";
-			}
-			try
-			{
-				if (Item != null)
-				{
-					OBS_VENDAField = Item["OBS_VENDA"].GetFormattedValue();
-				}
-				else
-				{
-					OBS_VENDAField = "";
-				}
-			}
-			catch
-			{
-				OBS_VENDAField = "";
+				TOTAL_VENDAField = 0;
 			}
 			try
 			{
@@ -431,22 +345,7 @@ namespace PROJETO.DataPages
 			{
 				if (Item != null)
 				{
-					TOTAL_VENDAField = double.Parse(Item["TOTAL_VENDA"].GetFormattedValue().Replace(".",","));
-				}
-				else
-				{
-					TOTAL_VENDAField = 0;
-				}
-			}
-			catch
-			{
-				TOTAL_VENDAField = 0;
-			}
-			try
-			{
-				if (Item != null)
-				{
-					ID_VENDAField = long.Parse(Item["ID_VENDA"].GetFormattedValue(), CultureInfo.CurrentCulture);
+					ID_VENDAField = long.Parse(Item["ID_VENDA"].GetFormattedValue());
 				}
 				else
 				{
@@ -456,6 +355,51 @@ namespace PROJETO.DataPages
 			catch
 			{
 				ID_VENDAField = 0;
+			}
+			try
+			{
+				if (Item != null)
+				{
+					LOGIN_USER_LOGINField = Item["LOGIN_USER_LOGIN"].GetFormattedValue();
+				}
+				else
+				{
+					LOGIN_USER_LOGINField = "";
+				}
+			}
+			catch
+			{
+				LOGIN_USER_LOGINField = "";
+			}
+			try
+			{
+				if (Item != null)
+				{
+					DATA_VENDAField = DateTime.Parse(Item["DATA_VENDA"].GetFormattedValue(), CultureInfo.CurrentCulture);
+				}
+				else
+				{
+					DATA_VENDAField = null;
+				}
+			}
+			catch
+			{
+				DATA_VENDAField = null;
+			}
+			try
+			{
+				if (Item != null)
+				{
+					OBS_VENDAField = Item["OBS_VENDA"].GetFormattedValue();
+				}
+				else
+				{
+					OBS_VENDAField = "";
+				}
+			}
+			catch
+			{
+				OBS_VENDAField = "";
 			}
 			try
 			{
@@ -472,30 +416,31 @@ namespace PROJETO.DataPages
 			{
 				PENDENTE_VENDAField = false;
 			}
-			PageProvider.AliasVariables.Add("DATA_VENDAField", DATA_VENDAField);
-			PageProvider.AliasVariables.Add("LOGIN_USER_LOGINField", LOGIN_USER_LOGINField);
-			PageProvider.AliasVariables.Add("OBS_VENDAField", OBS_VENDAField);
-			PageProvider.AliasVariables.Add("ENTREGA_VENDAField", ENTREGA_VENDAField);
-			PageProvider.AliasVariables.Add("TOTAL_VENDAField", TOTAL_VENDAField);
-			PageProvider.AliasVariables.Add("ID_VENDAField", ID_VENDAField);
-			PageProvider.AliasVariables.Add("PENDENTE_VENDAField", PENDENTE_VENDAField);
-			PageProvider.AliasVariables.Add("BasePage", this);
-        }
-
-		protected void ___Button13_OnClick(object sender, EventArgs e)
-		{
-			bool ActionSucceeded_1 = true;
 			try
 			{
-				PageProvider.ExecuteSingleProcess("Pendente");
+				if (Item != null)
+				{
+					TIPO_PGTO_VENDAField = Item["TIPO_PGTO_VENDA"].GetFormattedValue();
+				}
+				else
+				{
+					TIPO_PGTO_VENDAField = "";
+				}
 			}
-			catch (Exception ex)
+			catch
 			{
-				ActionSucceeded_1 = false;
-				PageErrors.Add("Error", ex.Message);
-				ShowErrors();
+				TIPO_PGTO_VENDAField = "";
 			}
-		}
+			PageProvider.AliasVariables.Add("TOTAL_VENDAField", TOTAL_VENDAField);
+			PageProvider.AliasVariables.Add("ENTREGA_VENDAField", ENTREGA_VENDAField);
+			PageProvider.AliasVariables.Add("ID_VENDAField", ID_VENDAField);
+			PageProvider.AliasVariables.Add("LOGIN_USER_LOGINField", LOGIN_USER_LOGINField);
+			PageProvider.AliasVariables.Add("DATA_VENDAField", DATA_VENDAField);
+			PageProvider.AliasVariables.Add("OBS_VENDAField", OBS_VENDAField);
+			PageProvider.AliasVariables.Add("PENDENTE_VENDAField", PENDENTE_VENDAField);
+			PageProvider.AliasVariables.Add("TIPO_PGTO_VENDAField", TIPO_PGTO_VENDAField);
+			PageProvider.AliasVariables.Add("BasePage", this);
+        }
 
 
 
@@ -519,9 +464,7 @@ namespace PROJETO.DataPages
 					else
 						Item = PageProvider.Pag_Cad_Venda_Grid1Provider.DataProvider.Item;
 					PageProvider.Pag_Cad_Venda_Grid1Provider.RaiseSetRelationFields(PageProvider.Pag_Cad_Venda_Grid1Provider, Item);
-					Item.SetFieldValue(Item["ID_PRODUTO"], PageProvider.Pag_Cad_Venda_Grid1Provider.GridData["ID_PRODUTO"]);
 					Item.SetFieldValue(Item["QTDE_VENDA_ITEM"], PageProvider.Pag_Cad_Venda_Grid1Provider.GridData["QTDE_VENDA_ITEM"]);
-					Item.SetFieldValue(Item["VALOR_VENDA_ITEM"], PageProvider.Pag_Cad_Venda_Grid1Provider.GridData["VALOR_VENDA_ITEM"]);
 					PageProvider.Pag_Cad_Venda_Grid1Provider.InitializeAlias(Item);
 					if (EnableValidation)
 					{
@@ -651,28 +594,11 @@ namespace PROJETO.DataPages
 				GridEditableItem item = (GridEditableItem)e.Item;
 				if (!(item is IGridInsertItem))
 				{
-					Utility.SelectGridComboItemByValue(PageProvider.Pag_Cad_Venda_Grid1Provider.GridColumn_ID_PRODUTOProvider, item, "GridColumn_ID_PRODUTO", PageProvider.Pag_Cad_Venda_Grid1Provider.DataProvider.Item["ID_PRODUTO"].Value);
-				}
-			}
-			if (e.Item is GridDataInsertItem && e.Item.OwnerTableView.IsItemInserted)
-			{
-				GridDataInsertItem insertItem = (GridDataInsertItem)e.Item;
-				if (Grid1.Columns.Count > 0 && insertItem[Grid1.Columns[1]].Controls.Count > 0)
-				{
-					insertItem[Grid1.Columns[1]].Controls[0].Focus();
 				}
 			}
 		}
 		private void FillGridComboValues(string GridId, Hashtable newValues, GridTableRow item)
 		{
-			RadComboBox cbo;
-			switch (GridId)
-			{
-				case "Grid1":
-					cbo = (RadComboBox)item.FindControl("GridColumn_ID_PRODUTO_ComboBox");
-					newValues["ID_PRODUTO"] = cbo.SelectedValue;
-					break;
-				}
 		}
 		
 		protected void Grid1_ItemCommand(object source, GridCommandEventArgs e)
@@ -912,16 +838,6 @@ namespace PROJETO.DataPages
 			}
 			return null;
 		}
-		protected void ___ComboBox_ID_CLIENTE_OnItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
-		{
-			KeyValuePair<string, object> AllowFilterContext = e.Context.FirstOrDefault(c => c.Key == "AllowFilter");
-			bool AllowFilter = false;
-			if (AllowFilterContext.Value != null) AllowFilter = Convert.ToBoolean(AllowFilterContext.Value);
-		
-			int ItemsCount = Convert.ToInt32(e.Context["ItemsCount"]);
-			e.EndOfItems = PageProvider.FillCombo(PageProvider.ComboBox_ID_CLIENTEProvider, sender as RadComboBox, e.NumberOfItems, e.Text, AllowFilter);
-		}
-		
 		protected void ___ComboBox1_OnItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
 		{
 			KeyValuePair<string, object> AllowFilterContext = e.Context.FirstOrDefault(c => c.Key == "AllowFilter");

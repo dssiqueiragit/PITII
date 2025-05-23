@@ -124,7 +124,7 @@ namespace PROJETO.DataProviders
 			switch (Entry.Title)
 			{
 				case "Novo_Lançamento":
-					if(Utility.PTab(AllParentItems["IncluiVenda"], "LOGIN_USER_LOGIN", DataProvider.Dao.ToSql(EnvironmentVariable.LoggedLoginUser, FieldType.Text), "PENDENTE_VENDA", DataProvider.Dao.ToSql((true).ToString(), FieldType.Boolean) ))
+					if((Utility.PTab(AllParentItems["IncluiVenda"], "LOGIN_USER_LOGIN", DataProvider.Dao.ToSql(EnvironmentVariable.LoggedLoginUser, FieldType.Text) )) && Utility.PTab(AllParentItems["IncluiVenda"], "PENDENTE_VENDA", DataProvider.Dao.ToSql((true).ToString(), FieldType.Boolean) ))
 					{
 						ValueField = AllParentItems["IncluiVenda"].Dao.ToSql(new TextField("",EnvironmentVariable.LoggedLoginUser).GetFormattedValue(""),FieldType.Text);
 						EntryItem Novo_Lancamento2= new EntryItem(AllParentItems["IncluiVenda"].Dao.PoeColAspas("TB_VENDA"),AllParentItems["IncluiVenda"].Dao.PoeColAspas("LOGIN_USER_LOGIN"),ValueField);
@@ -132,6 +132,9 @@ namespace PROJETO.DataProviders
 						ValueField = AllParentItems["IncluiVenda"].Dao.ToSql(new DateField(AllParentItems["IncluiVenda"].SelectCommand.DateFormat,EnvironmentVariable.ActualDateTime).GetFormattedValue(AllParentItems["IncluiVenda"].SelectCommand.DateFormat),FieldType.Date);
 						EntryItem Novo_Lancamento3= new EntryItem(AllParentItems["IncluiVenda"].Dao.PoeColAspas("TB_VENDA"),AllParentItems["IncluiVenda"].Dao.PoeColAspas("DATA_VENDA"),ValueField);
 						Entry.EntryItems.Add(Novo_Lancamento3);
+						ValueField = AllParentItems["IncluiVenda"].Dao.ToSql(new TextField("","1").GetFormattedValue(""),FieldType.Text);
+						EntryItem Novo_Lancamento6= new EntryItem(AllParentItems["IncluiVenda"].Dao.PoeColAspas("TB_VENDA"),AllParentItems["IncluiVenda"].Dao.PoeColAspas("ENTREGA_VENDA"),ValueField);
+						Entry.EntryItems.Add(Novo_Lancamento6);
 						ValueField = AllParentItems["IncluiVenda"].Dao.ToSql(new BooleanField(AllParentItems["IncluiVenda"].SelectCommand.BoolFormat,"1").GetFormattedValue(AllParentItems["IncluiVenda"].SelectCommand.BoolFormat),FieldType.Boolean);
 						EntryItem Novo_Lancamento7= new EntryItem(AllParentItems["IncluiVenda"].Dao.PoeColAspas("TB_VENDA"),AllParentItems["IncluiVenda"].Dao.PoeColAspas("PENDENTE_VENDA"),ValueField);
 						Entry.EntryItems.Add(Novo_Lancamento7);

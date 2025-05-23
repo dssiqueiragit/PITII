@@ -1,0 +1,5 @@
+/* Button style: */ 
+
+.button-rounded-warning:hover{
+	background-image: linear-gradient(#ffffff30,#ffffff30) !important;
+}

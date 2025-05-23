@@ -27,15 +27,14 @@ namespace PROJETO.DataProviders
 	public class Pag_Cad_VendaPageProvider : GeneralProvider
 	{
 		public Pag_Cad_Venda_Grid1GridDataProvider Pag_Cad_Venda_Grid1Provider;
-		public DbCupcake_TB_LOGIN_USERDataProvider ComboBox_ID_CLIENTEProvider;
 		public List<RadComboBoxDataItem> ComboBox1Items
 		{
 			get
 			{
 				return new List<RadComboBoxDataItem>()
 				{
-					new RadComboBoxDataItem(HttpContext.GetLocalResourceObject(((Page)MainProvider).AppRelativeVirtualPath, "GComboBoxItem1").ToString(), "1"),
-					new RadComboBoxDataItem(HttpContext.GetLocalResourceObject(((Page)MainProvider).AppRelativeVirtualPath, "GComboBoxItem2").ToString(), "2"),
+					new RadComboBoxDataItem(HttpContext.GetLocalResourceObject(((Page)MainProvider).AppRelativeVirtualPath, "GComboBoxItem1").ToString(), "RETIRAR NA LOJA"),
+					new RadComboBoxDataItem(HttpContext.GetLocalResourceObject(((Page)MainProvider).AppRelativeVirtualPath, "GComboBoxItem2").ToString(), "ENTREGA À DOMICÍLIO"),
 				};
 			}
 		}
@@ -45,9 +44,6 @@ namespace PROJETO.DataProviders
 			MainProvider = Provider;
 			MainProvider.DataProvider = new DbCupcake_TB_VENDADataProvider(MainProvider, MainProvider.TableName, MainProvider.DatabaseName, "PK_TB_VENDA", "Pag_Cad_Venda");
 			MainProvider.DataProvider.PageProvider = this;
-			ComboBox_ID_CLIENTEProvider = new DbCupcake_TB_LOGIN_USERDataProvider(MainProvider, "TB_LOGIN_USER", "DbCupcake", "", "Pag_Cad_Venda_ComboBox_ID_CLIENTEProviderAlias");
-			ComboBox_ID_CLIENTEProvider.PageProvider = this;
-			ComboBox_ID_CLIENTEProvider.CreatingParameters += GeneralDataProvider.GeneralCreatingParameters;
 			Pag_Cad_Venda_Grid1Provider = new Pag_Cad_Venda_Grid1GridDataProvider(this);
 			Pag_Cad_Venda_Grid1Provider.SetRelationFields += new GeneralGridProvider.SetRelationFieldsEventHandler(Pag_Cad_Venda_Grid1Provider_SetRelationFields);
 			Pag_Cad_Venda_Grid1Provider.SetRelationParameters += new GeneralGridProvider.SetRelationParametersEventHandler(Pag_Cad_Venda_Grid1Provider_SetRelationParameters);
@@ -82,11 +78,9 @@ namespace PROJETO.DataProviders
 				}
 				Item.SetFieldValue(Item["ID_VENDA"], MainProvider.DataProvider.Item["ID_VENDA"].Value);
 				Pag_Cad_Venda_Grid1Provider.AliasVariables = new Dictionary<string, object>();
-				Pag_Cad_Venda_Grid1Provider.AliasVariables.Add("OBS_VENDAField", MainProvider.DataProvider.Item["OBS_VENDA"].Value);
 				Pag_Cad_Venda_Grid1Provider.AliasVariables.Add("TOTAL_VENDAField", MainProvider.DataProvider.Item["TOTAL_VENDA"].Value);
-				Pag_Cad_Venda_Grid1Provider.AliasVariables.Add("LOGIN_USER_LOGINField", MainProvider.DataProvider.Item["LOGIN_USER_LOGIN"].Value);
+				Pag_Cad_Venda_Grid1Provider.AliasVariables.Add("ID_VENDAField", MainProvider.DataProvider.Item["ID_VENDA"].Value);
 				Pag_Cad_Venda_Grid1Provider.AliasVariables.Add("ENTREGA_VENDAField", MainProvider.DataProvider.Item["ENTREGA_VENDA"].Value);
-				Pag_Cad_Venda_Grid1Provider.AliasVariables.Add("DATA_VENDAField", MainProvider.DataProvider.Item["DATA_VENDA"].Value);
 			}
 			catch (Exception)
 			{
@@ -109,35 +103,16 @@ namespace PROJETO.DataProviders
 			{ 
 				return new DbCupcake_TB_VENDAItem(MainProvider.DatabaseName);
 			}
-			if (Provider == ComboBox_ID_CLIENTEProvider)
-			{
-				return new DbCupcake_TB_LOGIN_USERItem(Provider.DataBaseName, "LOGIN_USER_NAME", "LOGIN_USER_LOGIN");
-			}
 			return Provider.Item;
 		}
 
 		public override string GetItemText(GeneralDataProvider Provider, GeneralDataProviderItem Item)
 		{
-			if (Provider == ComboBox_ID_CLIENTEProvider)
-			{
-			if (Item["LOGIN_USER_NAME"].GetValue() != null)
-				{
-					return "" + Item["LOGIN_USER_NAME"].GetValue().ToString();
-				}
-			}
 		return "";
 		}
 		
 		public override object GetItemValue(GeneralDataProvider Provider, GeneralDataProviderItem Item)
 		{
-			if (Provider == ComboBox_ID_CLIENTEProvider)
-			{
-				if (Item["LOGIN_USER_LOGIN"].GetValue() != null)
-				{
-					return Item["LOGIN_USER_LOGIN"].GetValue();
-				}
-				return "";
-			}
 		return null;
 		}
 
@@ -233,17 +208,6 @@ namespace PROJETO.DataProviders
 			try
 			{
 				var Dao = Provider.Dao;
-				if (Provider == ComboBox_ID_CLIENTEProvider && !string.IsNullOrEmpty(Value))
-				{
-					try
-					{
-						Provider.FiltroAtual = Provider.Dao.PoeColAspas("LOGIN_USER_LOGIN") + " = " + Provider.Dao.ToSql(EnvironmentVariable.LoggedLoginUser.ToString(), FieldType.Text, true);
-					}
-					catch { }
-					Provider.FindRecord(new Dictionary<string, object>() { { "LOGIN_USER_LOGIN", Value } });
-					return Provider.Item;
-				}
-			
 			}
 			catch
 			{
@@ -261,24 +225,6 @@ namespace PROJETO.DataProviders
 			try
 			{
 				var Dao = Provider.Dao;
-				if (Provider == ComboBox_ID_CLIENTEProvider)
-				{
-					Provider.ResetParameters();
-					if (AllowFilter)
-					{
-						Provider.FiltroAtual = TextFilter.TrimEnd();
-						Provider.FilterFields = "LOGIN_USER_NAME";
-					}
-					try
-					{
-						Provider.StartFilter = Provider.Dao.PoeColAspas("LOGIN_USER_LOGIN") + " = " + Provider.Dao.ToSql(EnvironmentVariable.LoggedLoginUser.ToString(), FieldType.Text, true);
-					}
-					catch { }
-					int Total;
-					var data = Provider.SelectItems(0, 100, out Total);
-					var dt = Utility.FillComboBoxItems(ComboBox, 100, data, "LOGIN_USER_LOGIN", " LOGIN_USER_NAME", false);
-					return Total > 0;
-				}
 			}
 			catch
 			{
@@ -303,34 +249,6 @@ namespace PROJETO.DataProviders
 		/// <param name="provider">Provider que vai ser usado para carregar os itens da p?gina</param>
 		public override bool Validate(GeneralDataProviderItem ProviderItem)
 		{
-			bool Accepted = false;
-			try
-			{
-				Accepted =(ServerValidation.CheckNotEmpty(AliasVariables["DATA_VENDAField"]));
-			}
-			catch (Exception)
-			{
-				Accepted = false;
-			}
-			if (!Accepted) { ProviderItem.Errors.Add("ServerValidationError:DatePicker_DATA_VENDA", "DATA_VENDA não pode ser vazio!");}
-			try
-			{
-				Accepted =(ServerValidation.CheckNotEmpty(AliasVariables["LOGIN_USER_LOGINField"]));
-			}
-			catch (Exception)
-			{
-				Accepted = false;
-			}
-			if (!Accepted) { ProviderItem.Errors.Add("ServerValidationError:ComboBox_ID_CLIENTE", "Cliente não pode ser vazio!");}
-			try
-			{
-				Accepted =(ServerValidation.CheckNotEmpty(AliasVariables["ENTREGA_VENDAField"]));
-			}
-			catch (Exception)
-			{
-				Accepted = false;
-			}
-			if (!Accepted) { ProviderItem.Errors.Add("ServerValidationError:ComboBox1", "Entrega não pode ser vazio!");}
 			return (ProviderItem.Errors.Count == 0);
 		}
 		

@@ -339,10 +339,7 @@ namespace PROJETO.DataPages
 			bool ActionSucceeded_1 = true;
 			try
 			{
-				Processo_pre_definidoProcessProvider PreDefProvider = new Processo_pre_definidoProcessProvider(this);
-				PreDefProvider.AliasVariables = new Dictionary<string, object>();
-				PreDefProvider.AliasVariables.Clear();
-				PreDefProvider.ExecutePreDefinedProcess();
+				Button1_OnClick(sender, e);
 			}
 			catch (Exception ex)
 			{
@@ -350,21 +347,18 @@ namespace PROJETO.DataPages
 				PageErrors.Add("Error", ex.Message);
 				ShowErrors();
 			}
-			bool ActionSucceeded_2 = true;
+		}
+
+		protected void ___Button2_OnClick(object sender, EventArgs e)
+		{
+			bool ActionSucceeded_1 = true;
 			try
 			{
-				string UrlPage = ResolveUrl("~/venda");
-				try
-				{
-					Response.Redirect(UrlPage);
-				}
-				catch(Exception ex)
-				{
-				}
+				Button2_OnClick(sender, e);
 			}
 			catch (Exception ex)
 			{
-				ActionSucceeded_2 = false;
+				ActionSucceeded_1 = false;
 				PageErrors.Add("Error", ex.Message);
 				ShowErrors();
 			}
@@ -440,18 +434,71 @@ namespace PROJETO.DataPages
 		{
 			ExecuteLocalCommandRequest(CommandName, TargetName, Parameters);
 		}		
-		public override GeneralDataProviderItem GetDataProviderItem(GeneralDataProvider Provider)
+#region CÓDIGO DE USUARIO
+
+		protected void Button2_OnClick(object sender, EventArgs e)
 		{
-			if (Provider.Name == "IncluiVenda")
-			{
-				return new DbCupcake_TB_VENDAItem("DbCupcake");
-			}
-			if (Provider.Name == "IncluiVenda")
-			{
-				return new DbCupcake_TB_VENDAItem("DbCupcake");
-			}
-			return base.GetDataProviderItem(Provider);
+			InsereProduto();
 		}
 		
+		protected void Button1_OnClick(object sender, EventArgs e)
+		{
+		    InsereProduto();
+		}
+		
+		private void InsereProduto()
+		{
+		    Dictionary<string, object> parameters = new Dictionary<string, object>();
+		    parameters["LOGIN_USER_LOGIN"] = EnvironmentVariable.LoggedLoginUser;
+		    parameters["ID_PRODUTO"] = Convert.ToInt32(PageProvider.Repeater1RepeaterProvider.DataProvider.Item["ID_PRODUTO"].GetValue());
+		
+		    Dao.OpenConnection();
+		
+		    long ultimaVenda = long.Parse(Dao.RunSql("SELECT ISNULL(MAX(ID_VENDA), 0) total FROM TB_VENDA WHERE PENDENTE_VENDA = 1 AND LOGIN_USER_LOGIN = @LOGIN_USER_LOGIN", parameters).Tables[0].Rows[0]["total"].ToString());
+		
+		    long itemId = 0;
+		
+		    if (ultimaVenda == 0)
+		    {
+		        parameters["DATA_VENDA"] = DateTime.Now;
+		        parameters["TOTAL_VENDA"] = 0;
+		        parameters["ENTREGA_VENDA"] = "RETIRAR NA LOJA";
+		        parameters["PENDENTE_VENDA"] = true;
+		        parameters["TIPO_PGTO_VENDA"] = "Pix";
+		
+		        Dao.RunSql("INSERT INTO TB_VENDA (LOGIN_USER_LOGIN, DATA_VENDA, TOTAL_VENDA, ENTREGA_VENDA, PENDENTE_VENDA, TIPO_PGTO_VENDA) VALUES (@LOGIN_USER_LOGIN, @DATA_VENDA, @TOTAL_VENDA, @ENTREGA_VENDA, @PENDENTE_VENDA, @TIPO_PGTO_VENDA)", parameters);
+		
+		        ultimaVenda = long.Parse(Dao.RunSql("SELECT ISNULL(MAX(ID_VENDA), 0) total FROM TB_VENDA WHERE PENDENTE_VENDA = 1 AND LOGIN_USER_LOGIN = @LOGIN_USER_LOGIN", parameters).Tables[0].Rows[0]["total"].ToString());
+		        parameters["ID_VENDA"] = ultimaVenda;
+		
+		    }
+		    else
+		    {
+		        parameters["ID_VENDA"] = ultimaVenda;
+		
+		        var tabItem = Dao.RunSql("SELECT ID_VENDA_ITEM ID FROM TB_VENDA_ITEM WHERE ID_VENDA = @ID_VENDA AND ID_PRODUTO = @ID_PRODUTO", parameters).Tables[0];
+		        if (tabItem.Rows.Count > 0)
+		        {
+		            itemId = long.Parse(tabItem.Rows[0]["ID"].ToString());
+		        }
+		    }
+		
+		    if (itemId == 0)
+		    {
+		        parameters["QTDE_VENDA_ITEM"] = 1;
+		        Dao.RunSql("INSERT INTO TB_VENDA_ITEM (ID_VENDA, ID_PRODUTO, QTDE_VENDA_ITEM, VALOR_VENDA_ITEM) VALUES (@ID_VENDA, @ID_PRODUTO, @QTDE_VENDA_ITEM, (SELECT VALOR_PRODUTO FROM TB_PRODUTO WHERE ID_PRODUTO = @ID_PRODUTO))", parameters);
+		    }
+		    else
+		    {
+		        parameters["ID_VENDA_ITEM"] = itemId;
+		        Dao.RunSql("UPDATE TB_VENDA_ITEM SET QTDE_VENDA_ITEM = QTDE_VENDA_ITEM + 1 WHERE ID_VENDA_ITEM = @ID_VENDA_ITEM", parameters);
+		    }
+
+	        Dao.RunSql("UPDATE TB_VENDA SET TOTAL_VENDA = (SELECT SUM(QTDE_VENDA_ITEM * VALOR_VENDA_ITEM) FROM TB_VENDA_ITEM WHERE ID_VENDA = @ID_VENDA) WHERE ID_VENDA = @ID_VENDA", parameters);
+		
+		    Dao.CloseConnection();
+		}
+		
+#endregion
 	}
 }

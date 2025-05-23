@@ -42,8 +42,8 @@ namespace PROJETO.DataPages
 		public string LOGIN_USER_BAIRROField = "";
 		public string LOGIN_USER_CIDADEField = "";
 		public string LOGIN_USER_CEPField = "";
-		public string LOGIN_USER_CELField = "";
 		public string LOGIN_USER_EMAILField = "";
+		public string LOGIN_USER_CELField = "";
 		public string LOGIN_USER_OBSField = "";
 		public string LOGIN_GROUP_NAMEField = "";
 		
@@ -53,22 +53,21 @@ namespace PROJETO.DataPages
 		public override string PageName { get { return "TB_LOGIN_USER.aspx"; } }
 		public override string ProjectID { get { return "ED2986E"; } }
 		public override string TableParameters { get { return "false"; } }
-		public override bool PageInsert { get { return true;}}
+		public override bool PageInsert { get { return false;}}
 		public override bool CanEdit { get { return true && UpdateValidation(); }}
 		public override bool CanInsert  { get { return true && InsertValidation(); } }
 		public override bool CanDelete { get { return true && DeleteValidation(); } }
 		public override bool CanView { get { return true; } }
-		public override bool OpenInEditMode { get { return true; } }
+		public override bool OpenInEditMode { get { return false; } }
 		
 
 
 
-		public override bool AuthenticationRequired { get { return false; } }
 		public override void SetStartFilter()
 		{
 			try
 			{
-				PageProvider.MainProvider.DataProvider.StartFilter = "1=2";
+				PageProvider.MainProvider.DataProvider.StartFilter = Dao.PoeColAspas("LOGIN_USER_LOGIN") + " = " + Dao.ToSql(EnvironmentVariable.LoggedLoginUser.ToString(), FieldType.Text, true);
 			}
 			catch
 			{
@@ -95,6 +94,11 @@ namespace PROJETO.DataPages
 			if (IsPostBack)
 			{
 				AjaxPanel.ResponseScripts.Add("setTimeout(\"InitializeClient();\",100);");
+			}
+			if (HttpContext.Current.Request.UrlReferrer == null)
+			{
+				HttpContext.Current.Response.Redirect(Utility.StartPageName);  
+				return;
 			}
 			AjaxPanel.ResponseScripts.Add("setTimeout(\"RegisterClientValidateScript();\",100);");
 			ErrorLabel = labError;
@@ -124,8 +128,8 @@ namespace PROJETO.DataPages
 				Item.SetFieldValue(Item["LOGIN_USER_BAIRRO"], RadTextBox_LOGIN_USER_BAIRRO.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_CIDADE"], RadTextBox_LOGIN_USER_CIDADE.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_CEP"], RadTextBox_LOGIN_USER_CEP.Text, false);
-				Item.SetFieldValue(Item["LOGIN_USER_CEL"], RadTextBox_LOGIN_USER_CEL.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_EMAIL"], RadTextBox_LOGIN_USER_EMAIL.Text, false);
+				Item.SetFieldValue(Item["LOGIN_USER_CEL"], RadTextBox_LOGIN_USER_CEL.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_OBS"], RadTextBox_LOGIN_USER_OBS.Text, false);
 			}
 			InitializeAlias(Item);
@@ -149,8 +153,8 @@ namespace PROJETO.DataPages
 				Item.SetFieldValue(Item["LOGIN_USER_BAIRRO"], RadTextBox_LOGIN_USER_BAIRRO.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_CIDADE"], RadTextBox_LOGIN_USER_CIDADE.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_CEP"], RadTextBox_LOGIN_USER_CEP.Text, false);
-				Item.SetFieldValue(Item["LOGIN_USER_CEL"], RadTextBox_LOGIN_USER_CEL.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_EMAIL"], RadTextBox_LOGIN_USER_EMAIL.Text, false);
+				Item.SetFieldValue(Item["LOGIN_USER_CEL"], RadTextBox_LOGIN_USER_CEL.Text, false);
 				Item.SetFieldValue(Item["LOGIN_USER_OBS"], RadTextBox_LOGIN_USER_OBS.Text, false);
 			}
 			else
@@ -192,8 +196,8 @@ namespace PROJETO.DataPages
 			RadTextBox_LOGIN_USER_BAIRRO.Enabled = Action;
 			RadTextBox_LOGIN_USER_CIDADE.Enabled = Action;
 			RadTextBox_LOGIN_USER_CEP.Enabled = Action;
-			RadTextBox_LOGIN_USER_CEL.Enabled = Action;
 			RadTextBox_LOGIN_USER_EMAIL.Enabled = Action;
+			RadTextBox_LOGIN_USER_CEL.Enabled = Action;
 			RadTextBox_LOGIN_USER_OBS.Enabled = Action;
 		}
 
@@ -211,8 +215,8 @@ namespace PROJETO.DataPages
 				RadTextBox_LOGIN_USER_BAIRRO.Text = "";
 				RadTextBox_LOGIN_USER_CIDADE.Text = "";
 				RadTextBox_LOGIN_USER_CEP.Text = "";
-				RadTextBox_LOGIN_USER_CEL.Text = "";
 				RadTextBox_LOGIN_USER_EMAIL.Text = "";
+				RadTextBox_LOGIN_USER_CEL.Text = "";
 			if (ShouldClearFields)
 			{
 				RadTextBox_LOGIN_USER_OBS.Text = "";
@@ -253,10 +257,10 @@ namespace PROJETO.DataPages
 			Label_LOGIN_USER_CIDADE.Text = Label_LOGIN_USER_CIDADE.Text.Replace(">", "&gt;");
 			Label_LOGIN_USER_CEP.Text = Label_LOGIN_USER_CEP.Text.Replace("<", "&lt;");
 			Label_LOGIN_USER_CEP.Text = Label_LOGIN_USER_CEP.Text.Replace(">", "&gt;");
-			Label_LOGIN_USER_CEL.Text = Label_LOGIN_USER_CEL.Text.Replace("<", "&lt;");
-			Label_LOGIN_USER_CEL.Text = Label_LOGIN_USER_CEL.Text.Replace(">", "&gt;");
 			Label_LOGIN_USER_EMAIL.Text = Label_LOGIN_USER_EMAIL.Text.Replace("<", "&lt;");
 			Label_LOGIN_USER_EMAIL.Text = Label_LOGIN_USER_EMAIL.Text.Replace(">", "&gt;");
+			Label_LOGIN_USER_CEL.Text = Label_LOGIN_USER_CEL.Text.Replace("<", "&lt;");
+			Label_LOGIN_USER_CEL.Text = Label_LOGIN_USER_CEL.Text.Replace(">", "&gt;");
 			Label_LOGIN_USER_OBS.Text = Label_LOGIN_USER_OBS.Text.Replace("<", "&lt;");
 			Label_LOGIN_USER_OBS.Text = Label_LOGIN_USER_OBS.Text.Replace(">", "&gt;");
 		}
@@ -405,21 +409,6 @@ namespace PROJETO.DataPages
 			{
 				if (Item != null)
 				{
-					RadTextBox_LOGIN_USER_CEL.Text = Item["LOGIN_USER_CEL"].GetFormattedValue();
-				}
-				else
-				{
-					RadTextBox_LOGIN_USER_CEL.Text = "";
-				}
-			}
-			catch
-			{
-				RadTextBox_LOGIN_USER_CEL.Text = "";
-			}
-			try
-			{
-				if (Item != null)
-				{
 					RadTextBox_LOGIN_USER_EMAIL.Text = Item["LOGIN_USER_EMAIL"].GetFormattedValue();
 				}
 				else
@@ -430,6 +419,21 @@ namespace PROJETO.DataPages
 			catch
 			{
 				RadTextBox_LOGIN_USER_EMAIL.Text = "";
+			}
+			try
+			{
+				if (Item != null)
+				{
+					RadTextBox_LOGIN_USER_CEL.Text = Item["LOGIN_USER_CEL"].GetFormattedValue();
+				}
+				else
+				{
+					RadTextBox_LOGIN_USER_CEL.Text = "";
+				}
+			}
+			catch
+			{
+				RadTextBox_LOGIN_USER_CEL.Text = "";
 			}
 			try
 			{
@@ -596,21 +600,6 @@ namespace PROJETO.DataPages
 			{
 				if (Item != null)
 				{
-					LOGIN_USER_CELField = Item["LOGIN_USER_CEL"].GetFormattedValue();
-				}
-				else
-				{
-					LOGIN_USER_CELField = "";
-				}
-			}
-			catch
-			{
-				LOGIN_USER_CELField = "";
-			}
-			try
-			{
-				if (Item != null)
-				{
 					LOGIN_USER_EMAILField = Item["LOGIN_USER_EMAIL"].GetFormattedValue();
 				}
 				else
@@ -621,6 +610,21 @@ namespace PROJETO.DataPages
 			catch
 			{
 				LOGIN_USER_EMAILField = "";
+			}
+			try
+			{
+				if (Item != null)
+				{
+					LOGIN_USER_CELField = Item["LOGIN_USER_CEL"].GetFormattedValue();
+				}
+				else
+				{
+					LOGIN_USER_CELField = "";
+				}
+			}
+			catch
+			{
+				LOGIN_USER_CELField = "";
 			}
 			try
 			{
@@ -661,34 +665,12 @@ namespace PROJETO.DataPages
 			PageProvider.AliasVariables.Add("LOGIN_USER_BAIRROField", LOGIN_USER_BAIRROField);
 			PageProvider.AliasVariables.Add("LOGIN_USER_CIDADEField", LOGIN_USER_CIDADEField);
 			PageProvider.AliasVariables.Add("LOGIN_USER_CEPField", LOGIN_USER_CEPField);
-			PageProvider.AliasVariables.Add("LOGIN_USER_CELField", LOGIN_USER_CELField);
 			PageProvider.AliasVariables.Add("LOGIN_USER_EMAILField", LOGIN_USER_EMAILField);
+			PageProvider.AliasVariables.Add("LOGIN_USER_CELField", LOGIN_USER_CELField);
 			PageProvider.AliasVariables.Add("LOGIN_USER_OBSField", LOGIN_USER_OBSField);
 			PageProvider.AliasVariables.Add("LOGIN_GROUP_NAMEField", LOGIN_GROUP_NAMEField);
 			PageProvider.AliasVariables.Add("BasePage", this);
         }
-
-		protected void ___Form1_OnSaveSucceeded(GeneralDataProviderItem Item)
-		{
-			bool ActionSucceeded_1 = true;
-			try
-			{
-				string UrlPage = ResolveUrl("~/Login");
-				try
-				{
-					Response.Redirect(UrlPage);
-				}
-				catch(Exception ex)
-				{
-				}
-			}
-			catch (Exception ex)
-			{
-				ActionSucceeded_1 = false;
-				PageErrors.Add("Error", ex.Message);
-				ShowErrors();
-			}
-		}
 
 
 
@@ -697,9 +679,5 @@ namespace PROJETO.DataPages
 		{
 			ExecuteLocalCommandRequest(CommandName, TargetName, Parameters);
 		}		
-		public override void SaveSucceeded(GeneralDataProviderItem Item)
-		{
-			___Form1_OnSaveSucceeded(Item);
-		}
 	}
 }

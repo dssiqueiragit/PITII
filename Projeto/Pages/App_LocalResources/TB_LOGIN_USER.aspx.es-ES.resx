@@ -147,11 +147,11 @@
   <data name="Label_LOGIN_USER_CEP" xml:space="preserve">
     <value>Cep</value>
   </data>
-  <data name="Label_LOGIN_USER_CEL" xml:space="preserve">
-    <value>Cel</value>
-  </data>
   <data name="Label_LOGIN_USER_EMAIL" xml:space="preserve">
     <value>E-mail</value>
+  </data>
+  <data name="Label_LOGIN_USER_CEL" xml:space="preserve">
+    <value>Cel</value>
   </data>
   <data name="Label_LOGIN_USER_OBS" xml:space="preserve">
     <value>Novo Campo</value>

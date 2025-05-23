@@ -150,6 +150,9 @@
   <data name="Label_VALOR_CR" xml:space="preserve">
     <value>Valor</value>
   </data>
+  <data name="Button11" xml:space="preserve">
+    <value>Concluir</value>
+  </data>
   <data name="GComboBoxItem1" xml:space="preserve">
     <value>DINHEIRO</value>
   </data>

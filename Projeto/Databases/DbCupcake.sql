@@ -22,14 +22,14 @@ ALTER TABLE [TB_VENDA]
 DROP CONSTRAINT [FK_TB_LOGIN_USER1]
 GO
 
-IF EXISTS (SELECT * FROM sysobjects WHERE id = object_id('FK_TB_PRODUTO') AND sysstat & 0xf = 11)
-ALTER TABLE [TB_VENDA_ITEM]
-DROP CONSTRAINT [FK_TB_PRODUTO]
-GO
-
 IF EXISTS (SELECT * FROM sysobjects WHERE id = object_id('FK_TB_VENDA') AND sysstat & 0xf = 11)
 ALTER TABLE [TB_VENDA_ITEM]
 DROP CONSTRAINT [FK_TB_VENDA]
+GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE id = object_id('FK_TB_VENDA_ITEM') AND sysstat & 0xf = 11)
+ALTER TABLE [TB_VENDA_ITEM]
+DROP CONSTRAINT [FK_TB_VENDA_ITEM]
 GO
 
 /*------------------------------------------------------------*/
@@ -158,9 +158,10 @@ GO
 	[LOGIN_USER_LOGIN]                     varchar (14)         NOT NULL,
 	[DATA_VENDA]                           datetime             NOT NULL,
 	[OBS_VENDA]                            text                 NULL,
-	[TOTAL_VENDA]                          decimal (10,2)       DEFAULT 0 NULL,
-	[ENTREGA_VENDA]                        varchar (10)         NOT NULL,
-	[PENDENTE_VENDA]                       bit                  NULL
+	[TOTAL_VENDA]                          decimal (10,2)       DEFAULT 0 NOT NULL,
+	[ENTREGA_VENDA]                        varchar (40)         NOT NULL,
+	[PENDENTE_VENDA]                       bit                  DEFAULT 1 NULL,
+	[TIPO_PGTO_VENDA]                      varchar (40)         NULL
 		CONSTRAINT [PK_TB_VENDA] PRIMARY KEY CLUSTERED
 		(
 			[ID_VENDA]
@@ -212,21 +213,18 @@ ALTER TABLE [TB_VENDA] ADD CONSTRAINT [FK_TB_LOGIN_USER1]
 	ON UPDATE CASCADE
 GO
 
-ALTER TABLE [TB_VENDA_ITEM] ADD CONSTRAINT [FK_TB_PRODUTO]
-	FOREIGN KEY
-		([ID_PRODUTO])
-	REFERENCES [TB_PRODUTO]
-		([ID_PRODUTO])
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
-GO
-
 ALTER TABLE [TB_VENDA_ITEM] ADD CONSTRAINT [FK_TB_VENDA]
 	FOREIGN KEY
 		([ID_VENDA])
 	REFERENCES [TB_VENDA]
 		([ID_VENDA])
 	ON DELETE CASCADE
-	ON UPDATE CASCADE
+GO
+
+ALTER TABLE [TB_VENDA_ITEM] ADD CONSTRAINT [FK_TB_VENDA_ITEM]
+	FOREIGN KEY
+		([ID_PRODUTO])
+	REFERENCES [TB_PRODUTO]
+		([ID_PRODUTO])
 GO
 

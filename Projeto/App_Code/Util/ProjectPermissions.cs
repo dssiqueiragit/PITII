@@ -54,7 +54,7 @@ namespace PROJETO
 
 			// Permissões para página: ~/Pages/Pag_Cad_Venda.aspx
 			_permissions["36033"] = new Dictionary<string, string>();
-			_permissions["36033"]["$TITLE$"] =  "Cadastro de Venda";
+			_permissions["36033"]["$TITLE$"] =  "Meu Carrinho de Compras";
 			_permissions["36033"]["$NAME$"] =  "Pag_Cad_Venda";
 			_permissions["36033"]["$ALLOW_VIEW$"] = "Permitir visualização";
 			_permissions["36033"]["$ALLOW_INSERT$"] = "Permitir inclusão";
@@ -66,6 +66,16 @@ namespace PROJETO
 			// Permissões customizadas para Grid1
 			_permissions["36033"]["$2520630$"] = "Grid1";
 			_permissions["36033"]["$2520630$.$ALLOW_VIEW$"] = "Permitir visualizar dados em " + _permissions["36033"]["$2520630$"];
+			
+
+			// Permissões para página: ~/Pages/Pagamento.aspx
+			_permissions["36046"] = new Dictionary<string, string>();
+			_permissions["36046"]["$TITLE$"] =  "Pagamento da Venda";
+			_permissions["36046"]["$NAME$"] =  "Pagamento";
+			_permissions["36046"]["$ALLOW_VIEW$"] = "Permitir visualização";
+			_permissions["36046"]["$ALLOW_UPDATE$"] = "Permitir edição";
+			
+			// Permissões customizadas para: Modulo: 36046 (DataPageModule) - Controle: Form1
 			
 
 			// Permissões para página: ~/Pages/TB_LOGIN_USER.aspx
@@ -92,11 +102,39 @@ namespace PROJETO
 			// Permissões customizadas para: Modulo: 36036 (DataPageModule) - Controle: Form1
 			
 
+			// Permissões para página: ~/Pages/sucesso.aspx
+			_permissions["36045"] = new Dictionary<string, string>();
+			_permissions["36045"]["$TITLE$"] =  "Sucesso";
+			_permissions["36045"]["$NAME$"] =  "sucesso";
+			_permissions["36045"]["$ALLOW_VIEW$"] = "Permitir visualização";
+			
+			// Permissões customizadas para: Modulo: 36045 (DataPageModule) - Controle: Form1
+			
+
 			// Permissões para página: ~/Pages/IncluiVenda.aspx
 			_permissions["36039"] = new Dictionary<string, string>();
 			_permissions["36039"]["$TITLE$"] =  "IncluiVenda";
 			_permissions["36039"]["$NAME$"] =  "IncluiVenda";
 			_permissions["36039"]["$ALLOW_VIEW$"] = "Permitir visualização";
+			
+
+			// Permissões para página: ~/Pages/ItemIncluiCR.aspx
+			_permissions["36043"] = new Dictionary<string, string>();
+			_permissions["36043"]["$TITLE$"] =  "ItemIncluiCR";
+			_permissions["36043"]["$NAME$"] =  "ItemIncluiCR";
+			_permissions["36043"]["$ALLOW_VIEW$"] = "Permitir visualização";
+			
+
+			// Permissões para página: ~/Pages/TB_LOGIN_USER1.aspx
+			_permissions["36044"] = new Dictionary<string, string>();
+			_permissions["36044"]["$TITLE$"] =  "Usuário de login";
+			_permissions["36044"]["$NAME$"] =  "TB_LOGIN_USER1";
+			_permissions["36044"]["$ALLOW_VIEW$"] = "Permitir visualização";
+			_permissions["36044"]["$ALLOW_INSERT$"] = "Permitir inclusão";
+			_permissions["36044"]["$ALLOW_UPDATE$"] = "Permitir edição";
+			_permissions["36044"]["$ALLOW_DELETE$"] = "Permitir exclusão";
+			
+			// Permissões customizadas para: Modulo: 36044 (DataPageModule) - Controle: Form1
 			
 
 		}

@@ -26,6 +26,7 @@ namespace PROJETO.DataProviders
 	/// </summary>
 	public class PagRecPageProvider : GeneralProvider
 	{
+		public DbCupcake_TB_VENDADataProvider AUX_TB_VENDAProvider;
 		public DbCupcake_TB_LOGIN_USERDataProvider ComboBox_LOGIN_USER_LOGINProvider;
 		public List<RadComboBoxDataItem> ComboBox1Items
 		{
@@ -45,6 +46,7 @@ namespace PROJETO.DataProviders
 			MainProvider = Provider;
 			MainProvider.DataProvider = new DbCupcake_TB_CRDataProvider(MainProvider, MainProvider.TableName, MainProvider.DatabaseName, "PK_TB_CR", "PagRec");
 			MainProvider.DataProvider.PageProvider = this;
+			AUX_TB_VENDAProvider = new DbCupcake_TB_VENDADataProvider(MainProvider, "TB_VENDA", "DbCupcake", "PK_TB_VENDA", "AUX_TB_VENDA");
 			ComboBox_LOGIN_USER_LOGINProvider = new DbCupcake_TB_LOGIN_USERDataProvider(MainProvider, "TB_LOGIN_USER", "DbCupcake", "", "PagRec_ComboBox_LOGIN_USER_LOGINProviderAlias");
 			ComboBox_LOGIN_USER_LOGINProvider.PageProvider = this;
 			ComboBox_LOGIN_USER_LOGINProvider.CreatingParameters += GeneralDataProvider.GeneralCreatingParameters;
@@ -55,6 +57,10 @@ namespace PROJETO.DataProviders
 			if (Provider == MainProvider.DataProvider)
 			{ 
 				return new DbCupcake_TB_CRItem(MainProvider.DatabaseName);
+			}
+			else if (Provider.Name == "AUX_TB_VENDA")
+			{
+				return new DbCupcake_TB_VENDAItem("DbCupcakeSystem.Collections.ObjectModel.ObservableCollection`1[GAS.TableField]");
 			}
 			if (Provider == ComboBox_LOGIN_USER_LOGINProvider)
 			{
@@ -90,11 +96,14 @@ namespace PROJETO.DataProviders
 
 		public override void FillAuxiliarTables()
 		{
+			MainProvider.SetParametersValues(AUX_TB_VENDAProvider);
+			AUX_TB_VENDAProvider.Dao = MainProvider.DataProvider.Dao;
+			AUX_TB_VENDAProvider.SelectItem(1, FormPositioningEnum.First,true);
 		}
 
 		public override int GetMaxProcessLanc()
 		{
-			return 1;
+			return 2;
 		}
 		
 		public override void GetTableIdentity()
@@ -133,6 +142,22 @@ namespace PROJETO.DataProviders
 			GeneralDataProviderItem Item;
 			Process = new Dictionary<string, Process>();
 			Process.Clear();
+			if (MainProvider.DataProvider.PageNumber > 0 && (ProcessName == "Recebido"))
+			{
+				RawValue = "1";
+				ValueField = MainProvider.DataProvider.Dao.ToSql(RawValue.ToString(),FieldType.Boolean);
+				RelationField = MainProvider.DataProvider.ProviderFilterExpression();
+				Process Recebido= new Process(MainProvider.DataProvider.Dao.PoeColAspas("TB_CR"),MainProvider.DataProvider.Dao.PoeColAspas("REC_CR"), ValueField, RelationField,0,false);
+				Process.Add("Recebido653220", Recebido);
+			}
+			if (AUX_TB_VENDAProvider.PageNumber > 0 && (ProcessName == "Pendente"))
+			{
+				RawValue = "0";
+				ValueField = AUX_TB_VENDAProvider.Dao.ToSql(RawValue.ToString(),FieldType.Boolean);
+				RelationField = AUX_TB_VENDAProvider.ProviderFilterExpression();
+				Process Pendente= new Process(AUX_TB_VENDAProvider.Dao.PoeColAspas("TB_VENDA"),AUX_TB_VENDAProvider.Dao.PoeColAspas("PENDENTE_VENDA"), ValueField, RelationField,1,false);
+				Process.Add("Pendente653239", Pendente);
+			}
 		}
 
 		public override void CreateReverseProcess(int Pos , string SituationProcess)
@@ -174,6 +199,11 @@ namespace PROJETO.DataProviders
 				var Dao = Provider.Dao;
 				if (Provider == ComboBox_LOGIN_USER_LOGINProvider && !string.IsNullOrEmpty(Value))
 				{
+					try
+					{
+						Provider.FiltroAtual = Provider.Dao.PoeColAspas("LOGIN_USER_LOGIN") + " = " + Provider.Dao.ToSql(EnvironmentVariable.LoggedLoginUser.ToString(), FieldType.Text, true);
+					}
+					catch { }
 					Provider.FindRecord(new Dictionary<string, object>() { { "LOGIN_USER_LOGIN", Value } });
 					return Provider.Item;
 				}
@@ -203,6 +233,11 @@ namespace PROJETO.DataProviders
 						Provider.FiltroAtual = TextFilter.TrimEnd();
 						Provider.FilterFields = "LOGIN_USER_NAME";
 					}
+					try
+					{
+						Provider.StartFilter = Provider.Dao.PoeColAspas("LOGIN_USER_LOGIN") + " = " + Provider.Dao.ToSql(EnvironmentVariable.LoggedLoginUser.ToString(), FieldType.Text, true);
+					}
+					catch { }
 					int Total;
 					var data = Provider.SelectItems(0, 100, out Total);
 					var dt = Utility.FillComboBoxItems(ComboBox, 100, data, "LOGIN_USER_LOGIN", " LOGIN_USER_NAME", false);

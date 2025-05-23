@@ -21,17 +21,17 @@
 		</StyleSheets>
 	</telerik:RadStyleSheetManager>
 	<telerik:RadCodeBlock ID="HeaderCodeBlock" runat="server">
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/gvbaselayout.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>		
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>  
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/gvbaselayout.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>		
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>  
 	</telerik:RadCodeBlock>
 </head>
 <body onload="InitializeClient();" id="Form1_body" style="margin-left:auto;margin-right:auto;">
 	<telerik:RadCodeBlock ID="BodyCodeBlock" runat="server">
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250519235534") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250523015019") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js??sv=4.0_20250523015019") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250523015019") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250523015019") %>"></script>
 
 
 		<script type ="text/javascript" >
@@ -127,8 +127,8 @@
 			}
 		</script>
 
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/LayoutController.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mCustomScrollbar.concat.min.js??sv=4.0_20250519235534") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/LayoutController.js??sv=4.0_20250523015019") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mCustomScrollbar.concat.min.js??sv=4.0_20250523015019") %>"></script>
 		
 		<script type="text/javascript">
 		function OnLoginSucceded()
@@ -144,7 +144,7 @@
 		}
 			currentPath = "<%= Page.Request.Path %>";			
 		</script>
-	<script type="text/javascript" src="<%= ResolveUrl("~/JS/Access_USER.js??sv=4.0_20250519235534") %>"></script>
+	<script type="text/javascript" src="<%= ResolveUrl("~/JS/Access_USER.js??sv=4.0_20250523015019") %>"></script>
 	</telerik:RadCodeBlock>
 		<form id="Form1" runat="server" class="c_Form1">
 			<asp:ScriptManager ID="MainScriptManager" runat="server"/>
@@ -179,25 +179,25 @@
 																</div>
 																<div id="LayoutCol59" class="col col-12 c_LayoutCol59 card-body">
 																	<div id="LayoutRow15" class="row c_LayoutRow15">
-																		<div id="LayoutCol4" class="col col-12 col-lg-4 c_LayoutCol4">
+																		<div id="LayoutCol4" class="col col-12 c_LayoutCol4">
 																			<telerik:RadLabel id="Label70" runat="server" CssClass="c_Label70" Text="<%$ Resources: Label70 %>" />
 																			<telerik:RadTextBox id="RadTextBox21" runat="server" AutoPostBack="False" CssClass="c_RadTextBox21 textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="1" TextMode="Password" UseTelerikMask="False" WrapperCssClass="c_RadTextBox21_wrapper" />
 																		</div>
-																		<div id="LayoutCol6" class="col col-12 col-lg-4 c_LayoutCol6">
+																		<div id="LayoutCol6" class="col col-12 c_LayoutCol6">
 																			<telerik:RadLabel id="Label72" runat="server" CssClass="c_Label72" Text="<%$ Resources: Label72 %>" />
 																			<telerik:RadTextBox id="RadTextBox23" runat="server" AutoPostBack="False" CssClass="c_RadTextBox23 textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="3" TextMode="Password" UseTelerikMask="False" WrapperCssClass="c_RadTextBox23_wrapper" />
 																		</div>
-																		<div id="LayoutCol5" class="col col-12 col-lg-4 c_LayoutCol5">
+																		<div id="LayoutCol5" class="col col-12 c_LayoutCol5">
 																			<telerik:RadLabel id="Label71" runat="server" CssClass="c_Label71" Text="<%$ Resources: Label71 %>" />
 																			<telerik:RadTextBox id="RadTextBox22" runat="server" AutoPostBack="False" CssClass="c_RadTextBox22 textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="2" TextMode="Password" UseTelerikMask="False" WrapperCssClass="c_RadTextBox22_wrapper" />
 																		</div>
-																		<div id="LayoutCol8" class="col col-12 col-sm-6 col-lg-4 col-xxl-2 offset-0 offset-sm-6 offset-lg-8 offset-xxl-10 c_LayoutCol8">
+																		<div id="LayoutCol8" class="col col-12 c_LayoutCol8">
 																			<telerik:RadButton id="butPWSave2" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butPWSave2 button-rounded-secondary gvButtonIconText gvButtonAlignIconLeft" CommandName="butPWSave2"
 																				OnClick="___butPWSave2_OnClick" RenderMode="Lightweight" TabIndex="4" Text="<%$ Resources: butPWSave2 %>">
@@ -219,7 +219,7 @@
 											<telerik:RadPageView id="TabPage2" runat="server" BackColor="#FCFCFC" CssClass="c_TabPage2 col-12">
 												<div style="border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:0px;border-top-right-radius:0px" class="container-fluid">
 													<div id="LayoutRow3" class="row c_LayoutRow3">
-														<div id="LayoutCol40" class="col col-12 col-lg-6 col-xxl-4 c_LayoutCol40">
+														<div id="LayoutCol40" class="col col-12 c_LayoutCol40">
 															<div id="LayoutRow8" class="row c_LayoutRow8 card flex-row">
 																<div id="LayoutCol41" class="col col-12 c_LayoutCol41 card-header">
 																	<telerik:RadLabel id="Label74" runat="server" CssClass="c_Label74" Text="<%$ Resources: Label74 %>" />
@@ -229,9 +229,9 @@
 																		<div id="LayoutCol50" class="col col-12 c_LayoutCol50">
 																			<telerik:RadListBox id="ListBox13" runat="server" AutoPostBack="True" CssClass="c_ListBox13" ForeColor="#383838" Height="165"
 																				OnSelectedIndexChanged="___ListBox13_OnSelectedIndexChanged" RenderMode="Lightweight" SelectionMode="Single" TabIndex="10"
-																				Width="342" />
+																				Width="300" />
 																		</div>
-																		<div id="LayoutCol44" class="col col-12 col-sm-6 col-lg-8 col-xxl-7 offset-0 offset-sm-6 offset-lg-4 offset-xxl-5 c_LayoutCol44">
+																		<div id="LayoutCol44" class="col col-12 c_LayoutCol44">
 																			<telerik:RadButton id="Button26" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_Button26 button-rounded-secondary gvButtonIconText gvButtonAlignIconLeft" CommandName="Button26"
 																				OnClick="___Button26_OnClick" RenderMode="Lightweight" TabIndex="11" Text="<%$ Resources: Button26 %>">
@@ -245,7 +245,7 @@
 																</div>
 															</div>
 														</div>
-														<div id="LayoutCol47" class="col col-12 col-lg-6 col-xxl-4 c_LayoutCol47">
+														<div id="LayoutCol47" class="col col-12 c_LayoutCol47">
 															<div id="LayoutRow10" class="row c_LayoutRow10 card flex-row">
 																<div id="LayoutCol48" class="col col-12 c_LayoutCol48 card-header">
 																	<telerik:RadLabel id="Label75" runat="server" CssClass="c_Label75" Text="<%$ Resources: Label75 %>" />
@@ -255,24 +255,24 @@
 																		<div id="LayoutCol55" class="col col-12 c_LayoutCol55">
 																			<telerik:RadListBox id="ListBox14" runat="server" AutoPostBack="True" CssClass="c_ListBox14" ForeColor="#383838" Height="110"
 																				OnSelectedIndexChanged="___ListBox14_OnSelectedIndexChanged" RenderMode="Lightweight" SelectionMode="Single" TabIndex="12"
-																				Width="342" />
+																				Width="300" />
 																		</div>
-																		<div id="LayoutCol25" class="col col-12 col-sm-6 c_LayoutCol25">
+																		<div id="LayoutCol25" class="col col-12 c_LayoutCol25">
 																			<telerik:RadCheckBox id="CheckBox8" runat="server" AutoPostBack="True" Checked="False"
 																				CssClass="CheckBox8 c_CheckBox8 checkbox-toggle-secondary" RenderMode="Lightweight" TabIndex="14"
 																				Text="<%$ Resources: CheckBox8 %>" />
 																		</div>
-																		<div id="LayoutCol22" class="col col-12 col-sm-6 c_LayoutCol22">
+																		<div id="LayoutCol22" class="col col-12 c_LayoutCol22">
 																			<telerik:RadCheckBox id="CheckBox7" runat="server" AutoPostBack="True" Checked="False"
 																				CssClass="CheckBox7 c_CheckBox7 checkbox-toggle-secondary" RenderMode="Lightweight" TabIndex="13"
 																				Text="<%$ Resources: CheckBox7 %>" />
 																		</div>
-																		<div id="LayoutCol23" class="col col-12 col-sm-6 c_LayoutCol23">
+																		<div id="LayoutCol23" class="col col-12 c_LayoutCol23">
 																			<telerik:RadCheckBox id="CheckBox10" runat="server" AutoPostBack="True" Checked="False"
 																				CssClass="CheckBox10 c_CheckBox10 checkbox-toggle-secondary" RenderMode="Lightweight" TabIndex="16"
 																				Text="<%$ Resources: CheckBox10 %>" />
 																		</div>
-																		<div id="LayoutCol24" class="col col-12 col-sm-6 c_LayoutCol24">
+																		<div id="LayoutCol24" class="col col-12 c_LayoutCol24">
 																			<telerik:RadCheckBox id="CheckBox9" runat="server" AutoPostBack="True" Checked="False"
 																				CssClass="CheckBox9 c_CheckBox9 checkbox-toggle-secondary" RenderMode="Lightweight" TabIndex="15"
 																				Text="<%$ Resources: CheckBox9 %>" />
@@ -281,7 +281,7 @@
 																</div>
 															</div>
 														</div>
-														<div id="LayoutCol37" class="col col-12 col-xxl-4 c_LayoutCol37">
+														<div id="LayoutCol37" class="col col-12 c_LayoutCol37">
 															<div id="LayoutRow6" class="row c_LayoutRow6 card flex-row">
 																<div id="LayoutCol38" class="col col-12 c_LayoutCol38 card-header">
 																	<telerik:RadLabel id="Label79" runat="server" CssClass="c_Label79" Text="<%$ Resources: Label79 %>" />
@@ -299,7 +299,7 @@
 																				CssClass="RadCheckBox6 c_RadCheckBox6 checkbox-toggle-secondary" RenderMode="Lightweight" TabIndex="6"
 																				Text="<%$ Resources: RadCheckBox6 %>" />
 																		</div>
-																		<div id="LayoutCol11" class="col col-12 col-sm-4 col-lg-3 col-xxl-4 offset-0 offset-sm-0 offset-lg-3 offset-xxl-0 c_LayoutCol11">
+																		<div id="LayoutCol11" class="col col-12 c_LayoutCol11">
 																			<telerik:RadButton id="butGroupSave3" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butGroupSave3 button-rounded-secondary gvButtonIconText gvButtonAlignIconLeft" CommandName="butGroupSave3"
 																				OnClick="___butGroupSave3_OnClick" RenderMode="Lightweight" TabIndex="7" Text="<%$ Resources: butGroupSave3 %>">
@@ -309,7 +309,7 @@
 																				</ContentTemplate>
 																			</telerik:RadButton>
 																		</div>
-																		<div id="LayoutCol13" class="col col-12 col-sm-4 col-lg-3 col-xxl-4 c_LayoutCol13">
+																		<div id="LayoutCol13" class="col col-12 c_LayoutCol13">
 																			<telerik:RadButton id="butGroupRemove3" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butGroupRemove3 button-rounded-primary gvButtonIconText gvButtonAlignIconLeft" CommandName="butGroupRemove3"
 																				OnClick="___butGroupRemove3_OnClick" RenderMode="Lightweight" TabIndex="9" Text="<%$ Resources: butGroupRemove3 %>">
@@ -319,7 +319,7 @@
 																				</ContentTemplate>
 																			</telerik:RadButton>
 																		</div>
-																		<div id="LayoutCol12" class="col col-12 col-sm-4 col-lg-3 col-xxl-4 c_LayoutCol12">
+																		<div id="LayoutCol12" class="col col-12 c_LayoutCol12">
 																			<telerik:RadButton id="butGroupCancel3" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butGroupCancel3 button-rounded-primary gvButtonIconText gvButtonAlignIconLeft" CommandName="butGroupCancel3"
 																				OnClick="___butGroupCancel3_OnClick" RenderMode="Lightweight" TabIndex="8" Text="<%$ Resources: butGroupCancel3 %>">
@@ -339,7 +339,7 @@
 											<telerik:RadPageView id="TabPage3" runat="server" BackColor="#FCFCFC" CssClass="c_TabPage3 col-12">
 												<div style="border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:0px;border-top-right-radius:0px" class="container-fluid">
 													<div id="LayoutRow4" class="row c_LayoutRow4">
-														<div id="LayoutCol17" class="col col-12 col-lg-6 c_LayoutCol17">
+														<div id="LayoutCol17" class="col col-12 c_LayoutCol17">
 															<div id="LayoutRow16" class="row c_LayoutRow16 card flex-row">
 																<div id="LayoutCol60" class="col col-12 c_LayoutCol60 card-header">
 																	<telerik:RadLabel id="Label81" runat="server" CssClass="c_Label81" Text="<%$ Resources: Label81 %>" />
@@ -348,13 +348,13 @@
 																	<telerik:RadLabel id="Label76" runat="server" CssClass="c_Label76" Text="<%$ Resources: Label76 %>" />
 																	<telerik:RadListBox id="ListBox15" runat="server" AutoPostBack="True" CssClass="c_ListBox15" ForeColor="#383838" Height="110"
 																		OnSelectedIndexChanged="___ListBox15_OnSelectedIndexChanged" RenderMode="Lightweight" SelectionMode="Single" TabIndex="17"
-																		Width="364" />
+																		Width="322" />
 																	<telerik:RadLabel id="Label77" runat="server" CssClass="c_Label77" Text="<%$ Resources: Label77 %>" />
 																	<telerik:RadListBox id="ListBox16" runat="server" AutoPostBack="True" CssClass="c_ListBox16" ForeColor="#383838" Height="110"
 																		OnSelectedIndexChanged="___ListBox16_OnSelectedIndexChanged" RenderMode="Lightweight" SelectionMode="Single" TabIndex="18"
-																		Width="364" />
+																		Width="322" />
 																	<div id="LayoutRow17" class="row c_LayoutRow17">
-																		<div id="LayoutCol19" class="col col-12 col-sm-6 col-xxl-4 offset-0 offset-sm-0 offset-lg-0 offset-xxl-4 c_LayoutCol19">
+																		<div id="LayoutCol19" class="col col-12 c_LayoutCol19">
 																			<telerik:RadButton id="butUserNew" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butUserNew button-rounded-secondary gvButtonIconText gvButtonAlignIconLeft" CommandName="butUserNew"
 																				OnClick="___butUserNew_OnClick" RenderMode="Lightweight" TabIndex="19" Text="<%$ Resources: butUserNew %>">
@@ -364,7 +364,7 @@
 																				</ContentTemplate>
 																			</telerik:RadButton>
 																		</div>
-																		<div id="LayoutCol20" class="col col-12 col-sm-6 col-xxl-4 c_LayoutCol20">
+																		<div id="LayoutCol20" class="col col-12 c_LayoutCol20">
 																			<telerik:RadButton id="butUserRemove" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butUserRemove button-rounded-primary gvButtonIconText gvButtonAlignIconLeft" CommandName="butUserRemove"
 																				OnClick="___butUserRemove_OnClick" RenderMode="Lightweight" TabIndex="20" Text="<%$ Resources: butUserRemove %>">
@@ -378,32 +378,32 @@
 																</div>
 															</div>
 														</div>
-														<div id="LayoutCol21" class="col col-12 col-lg-6 c_LayoutCol21">
+														<div id="LayoutCol21" class="col col-12 c_LayoutCol21">
 															<div id="LayoutRow18" class="row c_LayoutRow18 card flex-row">
 																<div id="LayoutCol62" class="col col-12 c_LayoutCol62 card-header">
 																	<telerik:RadLabel id="Label82" runat="server" CssClass="c_Label82" Text="<%$ Resources: Label82 %>" />
 																</div>
 																<div id="LayoutCol63" class="col col-12 c_LayoutCol63 card-body">
 																	<div id="LayoutRow19" class="row c_LayoutRow19">
-																		<div id="LayoutCol27" class="col col-12 col-xxl-6 c_LayoutCol27">
+																		<div id="LayoutCol27" class="col col-12 c_LayoutCol27">
 																			<telerik:RadLabel id="Label56" runat="server" CssClass="c_Label56" Text="<%$ Resources: Label56 %>" />
 																			<telerik:RadTextBox id="RadTextBox10" runat="server" AutoPostBack="False" CssClass="c_RadTextBox10 textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="21" TextMode="SingleLine" UseTelerikMask="False" WrapperCssClass="c_RadTextBox10_wrapper" />
 																		</div>
-																		<div id="LayoutCol32" class="col col-12 col-xxl-6 c_LayoutCol32">
+																		<div id="LayoutCol32" class="col col-12 c_LayoutCol32">
 																			<telerik:RadLabel id="Label78" runat="server" CssClass="c_Label78" Text="<%$ Resources: Label78 %>" />
 																			<telerik:RadTextBox id="txtUserName" runat="server" AutoPostBack="False" CssClass="c_txtUserName textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="22" TextMode="SingleLine" UseTelerikMask="False" WrapperCssClass="c_txtUserName_wrapper" />
 																		</div>
-																		<div id="LayoutCol31" class="col col-12 col-xxl-6 c_LayoutCol31">
+																		<div id="LayoutCol31" class="col col-12 c_LayoutCol31">
 																			<telerik:RadLabel id="Label57" runat="server" CssClass="c_Label57" Text="<%$ Resources: Label57 %>" />
 																			<telerik:RadTextBox id="txtPassword" runat="server" AutoPostBack="False" CssClass="c_txtPassword textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="23" TextMode="Password" UseTelerikMask="False" WrapperCssClass="c_txtPassword_wrapper" />
 																		</div>
-																		<div id="LayoutCol30" class="col col-12 col-xxl-6 c_LayoutCol30">
+																		<div id="LayoutCol30" class="col col-12 c_LayoutCol30">
 																			<telerik:RadLabel id="Label59" runat="server" CssClass="c_Label59" Text="<%$ Resources: Label59 %>" />
 																			<telerik:RadTextBox id="txtPasswordConfirm" runat="server" AutoPostBack="False" CssClass="c_txtPasswordConfirm textbox-default"
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
@@ -415,7 +415,7 @@
 																				EnabledStyle-HorizontalAlign="Left" EnableSingleInputRendering="True" ForeColor="#333333" MaxLength="0" ReadOnly="False"
 																				RenderMode="Lightweight" TabIndex="25" TextMode="MultiLine" UseTelerikMask="False" WrapperCssClass="c_txtObservation_wrapper" />
 																		</div>
-																		<div id="LayoutCol28" class="col col-12 col-sm-6 col-xxl-3 offset-0 offset-sm-0 offset-lg-0 offset-xxl-6 c_LayoutCol28">
+																		<div id="LayoutCol28" class="col col-12 c_LayoutCol28">
 																			<telerik:RadButton id="butUserSave" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butUserSave button-rounded-secondary gvButtonIconText gvButtonAlignIconLeft" CommandName="butUserSave"
 																				OnClick="___butUserSave_OnClick" RenderMode="Lightweight" TabIndex="26" Text="<%$ Resources: butUserSave %>">
@@ -425,7 +425,7 @@
 																				</ContentTemplate>
 																			</telerik:RadButton>
 																		</div>
-																		<div id="LayoutCol26" class="col col-12 col-sm-6 col-xxl-3 c_LayoutCol26">
+																		<div id="LayoutCol26" class="col col-12 c_LayoutCol26">
 																			<telerik:RadButton id="butUserCancel" runat="server" ButtonType="SkinnedButton"
 																				CssClass="c_butUserCancel button-rounded-primary gvButtonIconText gvButtonAlignIconLeft" CommandName="butUserCancel"
 																				OnClick="___butUserCancel_OnClick" RenderMode="Lightweight" TabIndex="27" Text="<%$ Resources: butUserCancel %>">

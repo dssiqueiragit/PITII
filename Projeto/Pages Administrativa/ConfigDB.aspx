@@ -17,29 +17,29 @@
 		</StyleSheets>
 	</telerik:RadStyleSheetManager>
 	<telerik:RadCodeBlock ID="HeaderCodeBlock" runat="server">
-	<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>  
+	<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>  
 	</telerik:RadCodeBlock>
 </head>
 <body onload="InitializeClient();" id="Form1_body" style="margin-left:auto;margin-right:auto;">
 	<telerik:RadCodeBlock ID="BodyCodeBlock" runat="server">
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250519235534") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250523015019") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js??sv=4.0_20250523015019") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250523015019") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250523015019") %>"></script>
 
 
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/RadComboBoxHelper.js??sv=4.0_20250519235534") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/RadComboBoxHelper.js??sv=4.0_20250523015019") %>"></script>
 
 
-	<script type="text/javascript" src="<%= ResolveUrl("~/JS/ConfigDB_USER.js??sv=4.0_20250519235534") %>"></script>
+	<script type="text/javascript" src="<%= ResolveUrl("~/JS/ConfigDB_USER.js??sv=4.0_20250523015019") %>"></script>
 	</telerik:RadCodeBlock>
 		
 		<form id="Form1" runat="server" class="c_Form1">
 			<asp:ScriptManager ID="MainScriptManager" runat="server"/>
 				<div id="LayoutContainer1" runat="server" class="container c_LayoutContainer1">
 					<div id="LayoutRow2" class="row c_LayoutRow2">
-						<div id="LayoutCol12" class="col col-12 col-md-8 col-lg-6 col-xl-4 offset-0 offset-md-2 offset-lg-3 offset-xl-4 c_LayoutCol12">
+						<div id="LayoutCol12" class="col col-12 c_LayoutCol12">
 							<div id="LayoutRow1" class="row c_LayoutRow1 card flex-row">
 								<div id="LayoutCol11" class="col col-12 c_LayoutCol11 card-header">
 									<telerik:RadLabel id="labModuleTitle" runat="server" CssClass="c_labModuleTitle" Text="Configuração de banco de dados" />

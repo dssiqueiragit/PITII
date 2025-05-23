@@ -20,9 +20,9 @@
 	<telerik:RadCodeBlock ID="HeaderCodeBlock" runat="server">
 		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/validationEngine.jquery.css") %>" type="text/css" media="screen" title="no title"/>
 		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/animate.min.css") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>  	
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/gvbaselayout.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>  	
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/gvbaselayout.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>
 	</telerik:RadCodeBlock>
 </head>
 <body onload="InitializeClient();" id="Form1_body" style="margin-left:auto;margin-right:auto;">
@@ -31,20 +31,20 @@
 
 
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.min.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.global.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250519235534") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.min.js??sv=4.0_20250523015018") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.global.js??sv=4.0_20250523015018") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250523015018") %>" ></script>
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/wow.min.js") %>" ></script>
 		<script type="text/javascript"> new WOW().init(); </script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Page.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Pag_Cad_Prod_USER.js??sv=4.0_20250519235534") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Page.js??sv=4.0_20250523015018") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250523015018") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250523015018") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Pag_Cad_Prod_USER.js??sv=4.0_20250523015018") %>"></script>
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.validationEngine-pt_BR.js") %>"></script>
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.validationEngine.js") %>"></script>
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/validation.js") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mCustomScrollbar.concat.min.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/LayoutController.js??sv=4.0_20250519235534") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mCustomScrollbar.concat.min.js??sv=4.0_20250523015018") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/LayoutController.js??sv=4.0_20250523015018") %>" ></script>
 
 		<script type="text/javascript">
 			function OnLoginSucceded()
@@ -190,14 +190,14 @@
 							</div>
 						</div>
 						<div id="LayoutRow2" class="row c_LayoutRow2">
-							<div id="LayoutCol5" class="col col-12 c_LayoutCol5">
+							<div id="LayoutCol5" class="col col-12 col-sm-6 c_LayoutCol5">
 								<telerik:RadLabel id="Label_FOTO1_PRODUTO" runat="server" CssClass="c_Label_FOTO1_PRODUTO" Text="<%$ Resources: Label_FOTO1_PRODUTO %>" />
 								<gas:GMultiMedia id="GMultiMedia_FOTO1_PRODUTO" runat="server" BorderWidth="1" CanDownloadFile="True" CanUploadFile="True"
 									class="c_GMultiMedia_FOTO1_PRODUTO" EncryptedFile="False" Height="170px" ImageFit="contain" MaxFileSize="0" Responsive="true"
 									SaveAsFile="False" SaveOnS3="False" SessionHandlerObjectName="FOTO1_PRODUTO36032" ShowDownloadLink="False" ShowImage="True" TabIndex="3"
 									Visible="True" Width="100%" />
 							</div>
-							<div id="LayoutCol6" class="col col-12 c_LayoutCol6">
+							<div id="LayoutCol6" class="col col-12 col-sm-6 c_LayoutCol6">
 								<telerik:RadLabel id="Label_FOTO2_PRODUTO" runat="server" CssClass="c_Label_FOTO2_PRODUTO" Text="<%$ Resources: Label_FOTO2_PRODUTO %>" />
 								<gas:GMultiMedia id="GMultiMedia_FOTO2_PRODUTO" runat="server" BorderWidth="1" CanDownloadFile="True" CanUploadFile="True"
 									class="c_GMultiMedia_FOTO2_PRODUTO" EncryptedFile="False" Height="170px" ImageFit="contain" MaxFileSize="0" Responsive="true"

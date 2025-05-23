@@ -19,10 +19,10 @@
 		</StyleSheets>
 	</telerik:RadStyleSheetManager>
 	<telerik:RadCodeBlock ID="HeaderCodeBlock" runat="server">
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/validationEngine.jquery.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/animate.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
-	<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250519235534") %>" type="text/css" media="screen" title="no title"/>  
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/validationEngine.jquery.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/animate.min.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>
+	<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250523015018") %>" type="text/css" media="screen" title="no title"/>  
 	</telerik:RadCodeBlock>
 </head>
 <body onload="InitializeClient();" id="Form1_body" style="margin-left:auto;margin-right:auto;">
@@ -30,17 +30,17 @@
 		
 
 
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.min.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.global.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250519235534") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/wow.min.js??sv=4.0_20250519235534") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js??sv=4.0_20250523015018") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.min.js??sv=4.0_20250523015018") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.global.js??sv=4.0_20250523015018") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250523015018") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/wow.min.js??sv=4.0_20250523015018") %>" ></script>
 		<script type="text/javascript"> new WOW().init(); </script>
 		
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250519235534") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250519235534") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250523015018") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250523015018") %>"></script>
 
-			<script type="text/javascript" src="<%= ResolveUrl("~/JS/LoginPage_USER.js??sv=4.0_20250519235534") %>"></script>
+			<script type="text/javascript" src="<%= ResolveUrl("~/JS/LoginPage_USER.js??sv=4.0_20250523015018") %>"></script>
 		<script type="text/javascript">
 			function OnLoginSucceded()
 			{
@@ -84,16 +84,15 @@
 							</div>
 						</div>
 						<div id="LayoutRow2" class="row c_LayoutRow2">
-							<div id="LayoutCol9" class="col col-10 offset-1 offset-md-1 c_LayoutCol9">
+							<div id="LayoutCol9" class="col col-10 offset-1 offset-sm-1 c_LayoutCol9">
 								<div id="LayoutRow6" class="row c_LayoutRow6 card flex-row">
 									<div id="LayoutCol10" class="col col-7 c_LayoutCol10">
 										<telerik:RadLabel id="Label8" runat="server" CssClass="c_Label8" Text="<%$ Resources: Label8 %>" />
 										<telerik:RadLabel id="Label10" runat="server" CssClass="c_Label10" Text="<%$ Resources: Label10 %>" />
 										<asp:Image id="Image2" runat="server" class="c_Image2" ImageUrl="~/Images/BlankLogin/backloginl.png" />
 										<telerik:RadLabel id="Label9" runat="server" CssClass="c_Label9" Text="<%$ Resources: Label9 %>" />
-										<telerik:RadLabel id="Label2" runat="server" CssClass="c_Label2" Text="<%$ Resources: Label2 %>" />
 									</div>
-									<div id="LayoutCol11" class="col col-12 col-md-5 c_LayoutCol11 card-body">
+									<div id="LayoutCol11" class="col col-12 c_LayoutCol11 card-body">
 										<telerik:RadLabel id="Label12" runat="server" CssClass="c_Label12" Text="<%$ Resources: Label12 %>" />
 										<telerik:RadLabel id="Label13" runat="server" CssClass="c_Label13" Text="<%$ Resources: Label13 %>" />
 										<telerik:RadLabel id="Label1" runat="server" CssClass="c_Label1" Text="<%$ Resources: Label1 %>" />

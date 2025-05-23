@@ -2,7 +2,10 @@
 <Pages>
 	<Page Name="HomeAspx.aspx" Title="Home" />
 	<Page Name="Pag_Cad_Prod.aspx" Title="Cadastro de Produto" />
-	<Page Name="Pag_Cad_Venda.aspx" Title="Cadastro de Venda" />
+	<Page Name="Pag_Cad_Venda.aspx" Title="Meu Carrinho de Compras" />
+	<Page Name="Pagamento.aspx" Title="Pagamento da Venda" />
 	<Page Name="TB_LOGIN_USER.aspx" Title="Cadastro" />
 	<Page Name="PagRec.aspx" Title="Contas a Receber" />
+	<Page Name="sucesso.aspx" Title="Sucesso" />
+	<Page Name="TB_LOGIN_USER1.aspx" Title="Usuário de login" />
 </Pages>

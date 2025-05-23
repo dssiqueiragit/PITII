@@ -120,14 +120,8 @@
   <data name="Form1" xml:space="preserve">
     <value>TB_VENDA</value>
   </data>
-  <data name="Label_DATA_VENDA" xml:space="preserve">
-    <value>Data</value>
-  </data>
-  <data name="Label_ID_CLIENTE" xml:space="preserve">
-    <value>Cliente</value>
-  </data>
-  <data name="ComboBox_ID_CLIENTE" xml:space="preserve">
-    <value>Carregando...</value>
+  <data name="Label_TOTAL_VENDA" xml:space="preserve">
+    <value>Valor Total</value>
   </data>
   <data name="GridColumn_ID_PRODUTO" xml:space="preserve">
     <value>Produto</value>
@@ -141,20 +135,17 @@
   <data name="GridColumn2" xml:space="preserve">
     <value>Total</value>
   </data>
-  <data name="Label_OBS_VENDA" xml:space="preserve">
-    <value>Obs</value>
-  </data>
   <data name="Label_ENTREGA_VENDA" xml:space="preserve">
     <value>Entrega</value>
   </data>
   <data name="ComboBox1" xml:space="preserve">
     <value>Carregando...</value>
   </data>
-  <data name="Label_TOTAL_VENDA" xml:space="preserve">
-    <value>Valor Total</value>
+  <data name="Button14" xml:space="preserve">
+    <value>Aplicar</value>
   </data>
   <data name="Button13" xml:space="preserve">
-    <value>Concluir</value>
+    <value>Pagamento</value>
   </data>
   <data name="GComboBoxItem1" xml:space="preserve">
     <value>RETIRAR NA LOJA</value>

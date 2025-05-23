@@ -140,7 +140,7 @@ namespace PROJETO
 
 		private void Page_PreRenderComplete(object sender, EventArgs e)
 		{
-			UserControlsHelper.RegisterCss(this.Page, "~/Styles/Footer.css?sv=4.0_20250519235534");
+			UserControlsHelper.RegisterCss(this.Page, "~/Styles/Footer.css?sv=4.0_20250523015019");
 		}
 
 		public void ShowFormulas()

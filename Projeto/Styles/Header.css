@@ -40,9 +40,9 @@
 }
 
 /*
-Media query for SM resolution
+Media query for XS resolution
 */
-@media (min-width: 576px) {
+@media (min-width: 0px) {
 	
 	:root
 	{
@@ -151,8 +151,9 @@ Media query for SM resolution
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: end;
 	overflow: inherit;
-	padding: 10px 10px 5px 10px !important;
+	padding: 0px !important;
 }
 
 .c_Header_Button16
@@ -162,26 +163,26 @@ Media query for SM resolution
 	margin-left: var(--mleft) !important;
 	margin-right: var(--mright);
 	margin-top: 0px;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 	--mleft: 0px;
-	--mright: 0px;
+	--mright: 10px;
 	position: relative;
-	height: 32px;
+	width: 50px;
+	height: 42px;
 	background-image: none !important;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	border-bottom-left-radius: 5px !important;
-	border-bottom-right-radius: 5px !important;
-	border-top-left-radius: 5px !important;
-	border-top-right-radius: 5px !important;
+	border-bottom-left-radius: 2px !important;
+	border-bottom-right-radius: 2px !important;
+	border-top-left-radius: 2px !important;
+	border-top-right-radius: 2px !important;
 	border-width: 1px !important;
 	display: block;
 	outline-style: none !important;
 	padding: 0px !important;
 	padding: 0px 10px 0px 10px !important;
 	text-align: Center;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
 }
 
 .c_Header_Button16:not(:hover), .c_Header_Button16.RadButton.rbButton.rbDisabled
@@ -189,6 +190,24 @@ Media query for SM resolution
 	background-color: #FFFFFF;
 	border-color: #CCCCCC;
 	color: #292828 !important;
+	min-width: 50px;
+}
+
+.c_Header_Button16_icon
+{
+	color: #000000;
+	font-size: 16px;
+	text-align: center;
+	-webkit-background-clip: unset;
+	-webkit-text-fill-color: unset;
+}
+
+.c_Header_Button16:hover .c_Header_Button16_icon
+{
+	background-image: none;
+	color: #000000;
+	-webkit-background-clip: unset;
+	-webkit-text-fill-color: unset;
 }
 /*		Hover style		*/
 
@@ -213,6 +232,7 @@ Media query for SM resolution
 	background-color: #FFFFFF !important;
 	border-color: #CCCCCC !important;
 	color: #292828 !important;
+	min-width: 50px;
 }
 
 .c_Header_Button16:hover

@@ -19,12 +19,15 @@
 .c_Form1
 {
 	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	--mleft: 0px;
 	--mright: 0px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
+	height: 100%;
 	width: calc(100% - var(--mleft) - var(--mright)) !important;
 }
 
@@ -190,13 +193,13 @@ Media query for XS resolution
 }
 
 /*
-Media query for MD resolution
+Media query for SM resolution
 */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 	
 	.c_LayoutCol10
 	{
-		display: flex;
+		display: none;
 	}
 
 }
@@ -276,26 +279,6 @@ Media query for MD resolution
 	word-wrap: normal;
 }
 
-.c_Label2
-{
-	font-family: 'Segoe UI';
-	font-size: 14px;
-	margin-left: var(--mleft) !important;
-	margin-right: var(--mright);
-	margin-top: 10px;
-	margin-bottom: 5px;
-	--mleft: 0px;
-	--mright: 0px;
-	position: relative;
-	color: #337AB7;
-	display: block;
-	font-weight: 400;
-	Padding-right: 0px;
-	text-align: Center;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-	word-wrap: normal;
-}
-
 .c_LayoutCol11
 {
 	align-self: center;
@@ -342,13 +325,13 @@ Media query for XS resolution
 }
 
 /*
-Media query for MD resolution
+Media query for SM resolution
 */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 	
 	.c_Label12
 	{
-		display: none;
+		display: block;
 	}
 
 }
@@ -386,13 +369,13 @@ Media query for XS resolution
 }
 
 /*
-Media query for MD resolution
+Media query for SM resolution
 */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 	
 	.c_Label13
 	{
-		display: none;
+		display: block;
 	}
 
 }
@@ -411,7 +394,7 @@ Media query for MD resolution
 	--mright: 0px;
 	position: relative;
 	color: #383838;
-	display: none;
+	display: block;
 	Padding-right: 0px;
 	text-align: Left;
 	width: calc(100% - var(--mleft) - var(--mright)) !important;
@@ -431,9 +414,9 @@ Media query for XS resolution
 }
 
 /*
-Media query for MD resolution
+Media query for SM resolution
 */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 	
 	.c_Label1
 	{
@@ -660,13 +643,13 @@ Media query for XS resolution
 }
 
 /*
-Media query for MD resolution
+Media query for SM resolution
 */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 	
 	.c_Label14
 	{
-		display: none;
+		display: block;
 	}
 
 }

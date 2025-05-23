@@ -62,8 +62,6 @@ namespace PROJETO
 			Label10.Text = Label10.Text.Replace(">", "&gt;");
 			Label9.Text = Label9.Text.Replace("<", "&lt;");
 			Label9.Text = Label9.Text.Replace(">", "&gt;");
-			Label2.Text = Label2.Text.Replace("<", "&lt;");
-			Label2.Text = Label2.Text.Replace(">", "&gt;");
 			Label12.Text = Label12.Text.Replace("<", "&lt;");
 			Label12.Text = Label12.Text.Replace(">", "&gt;");
 			Label13.Text = Label13.Text.Replace("<", "&lt;");
@@ -117,7 +115,7 @@ namespace PROJETO
 				bool ActionSucceeded_1 = true;
 				try
 				{
-					string UrlPage = ResolveUrl("~/cadastro");
+					string UrlPage = ResolveUrl("~/Pages/TB_LOGIN_USER1.aspx");
 					try
 					{
 						Response.Redirect(UrlPage);

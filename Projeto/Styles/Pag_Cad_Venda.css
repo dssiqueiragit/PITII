@@ -18,10 +18,13 @@
 
 .c_Form1
 {
+	margin-top: 0px;
+	margin-bottom: 0px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
+	height: 100%;
 }
 
 #Form1_body
@@ -107,7 +110,7 @@
 	cursor: inherit;
 	display: block;
 	font-weight: 400;
-	line-height: 14px;
+	line-height: 12px;
 	Padding-right: 0px;
 	text-align: Center;
 	width: calc(100% - var(--mleft) - var(--mright)) !important;
@@ -126,7 +129,7 @@
 	padding: 10px !important;
 }
 
-.c_LayoutCol3
+.c_LayoutCol6
 {
 	background-color: #FFFFFF;
 	background-position: center;
@@ -141,14 +144,14 @@
 	padding: 10px !important;
 }
 
-.c_Label_DATA_VENDA
+.c_Label_TOTAL_VENDA
 {
 	font-family: 'Segoe UI';
 	font-size: 14px;
 	margin-left: var(--mleft) !important;
 	margin-right: var(--mright);
 	margin-top: 0px;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 	--mleft: 0px;
 	--mright: 0px;
 	position: relative;
@@ -161,102 +164,32 @@
 	word-wrap: normal;
 }
 
-.c_DatePicker_DATA_VENDA
+.c_RadTextBox_TOTAL_VENDA
 {
 	font-family: 'Segoe UI' !important;
 	font-size: 14px !important;
-	margin-left: var(--mleft) !important;
-	margin-right: var(--mright);
-	margin-top: 0px;
-	margin-bottom: 5px;
-	--mleft: 0px;
-	--mright: 0px;
-	position: relative;
-	height: 32px;
+	background-color: #F7F7F7 !important;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	height: 32px !important;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	cursor: inherit;
-	display: block;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
+	height: 100%;
+	outline-style: none !important;
 }
 
-.c_DatePicker_DATA_VENDA_wrapper
+.c_RadTextBox_TOTAL_VENDA_wrapper
 {
 	position: relative;
-	position: relative;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	display: block;
 	height: 32px !important;
 	margin: 0px var(--mright) 5px var(--mleft);
 	--mleft: 0px;
 	--mright: 0px;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-}
-
-.c_DatePicker_DATA_VENDA_dateInput_wrapper
-{
-	position: relative;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-}
-
-.c_LayoutCol4
-{
-	background-color: #FFFFFF;
-	background-position: center;
-	background-size: auto;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	cursor: inherit;
-	display: flex;
-	flex-direction: column;
-	padding: 10px !important;
-}
-
-.c_Label_ID_CLIENTE
-{
-	font-family: 'Segoe UI';
-	font-size: 14px;
-	margin-left: var(--mleft) !important;
-	margin-right: var(--mright);
-	margin-top: 0px;
-	margin-bottom: 5px;
-	--mleft: 0px;
-	--mright: 0px;
-	position: relative;
-	color: #383838;
-	display: block;
-	font-weight: 400;
-	Padding-right: 0px;
-	text-align: Left;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-	word-wrap: normal;
-}
-
-.c_ComboBox_ID_CLIENTE
-{
-	font-family: 'Segoe UI';
-	font-size: 14px;
-	margin-left: var(--mleft) !important;
-	margin-right: var(--mright);
-	margin-top: 0px;
-	margin-bottom: 5px;
-	--mleft: 0px;
-	--mright: 0px;
-	position: relative;
-	background-color: #F7F7F7;
-	cursor: inherit;
-	display: block;
 	width: calc(100% - var(--mleft) - var(--mright)) !important;
 }
 
@@ -335,67 +268,6 @@
 	border-bottom-right-radius: 0px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-}
-
-.c_LayoutCol5
-{
-	background-position: center;
-	background-size: auto;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	cursor: inherit;
-	display: flex;
-	flex-direction: column;
-	padding: 10px !important;
-}
-
-.c_Label_OBS_VENDA
-{
-	font-family: 'Segoe UI';
-	font-size: 14px;
-	margin-left: var(--mleft) !important;
-	margin-right: var(--mright);
-	margin-top: 0px;
-	margin-bottom: 0px;
-	--mleft: 0px;
-	--mright: 0px;
-	position: relative;
-	color: #383838;
-	display: block;
-	font-weight: 400;
-	Padding-right: 0px;
-	text-align: Left;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-	word-wrap: normal;
-}
-
-.c_RadTextBox_OBS_VENDA
-{
-	font-family: 'Segoe UI' !important;
-	font-size: 14px !important;
-	background-color: #F7F7F7 !important;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	height: 100%;
-	outline-style: none !important;
-}
-
-.c_RadTextBox_OBS_VENDA_wrapper
-{
-	position: relative;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	display: block;
-	margin: 0px var(--mright) 5px var(--mleft);
-	--mleft: 0px;
-	--mright: 0px;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
 }
 
 .c_LayoutCol10
@@ -498,106 +370,29 @@
 	cursor: inherit;
 }
 
-.c_LayoutCol6
-{
-	background-color: #FFFFFF;
-	background-position: center;
-	background-size: auto;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	cursor: inherit;
-	display: flex;
-	flex-direction: column;
-	padding: 10px !important;
-}
-
-.c_Label_TOTAL_VENDA
+.c_Button14
 {
 	font-family: 'Segoe UI';
 	font-size: 14px;
 	margin-left: var(--mleft) !important;
 	margin-right: var(--mright);
 	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-bottom: 5px;
 	--mleft: 0px;
 	--mright: 0px;
 	position: relative;
-	color: #383838;
-	display: block;
-	font-weight: 400;
-	Padding-right: 0px;
-	text-align: Left;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-	word-wrap: normal;
-}
-
-.c_RadTextBox_TOTAL_VENDA
-{
-	font-family: 'Segoe UI' !important;
-	font-size: 14px !important;
-	background-color: #F7F7F7 !important;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	height: 100%;
-	outline-style: none !important;
-}
-
-.c_RadTextBox_TOTAL_VENDA_wrapper
-{
-	position: relative;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	display: block;
-	margin: 0px var(--mright) 5px var(--mleft);
-	--mleft: 0px;
-	--mright: 0px;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-}
-
-.c_LayoutCol11
-{
-	background-color: Transparent;
-	background-position: center;
-	background-size: auto;
-	cursor: inherit;
-	display: flex;
-	flex-direction: column;
-	padding: 5px 10px 5px 10px !important;
-}
-
-.c_gToolbar
-{
-	margin-left: var(--mleft) !important;
-	margin-right: var(--mright);
-	margin-top: 0px;
-	margin-bottom: 0px;
-	--mleft: 0px;
-	--mright: 0px;
-	position: relative;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-style: None;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	cursor: inherit;
-	display: block;
-	width: calc(100% - var(--mleft) - var(--mright)) !important;
-}
-
-.c_Button1
-{
-	width: 32px;
+	width: 89px;
 	height: 32px;
-	background-image: url('../Images/Imagens padrão/New.png') !important;
+	align-self: flex-end;
+	background-image: none !important;
 	background-position: center;
-	background-repeat: no-repeat !Important;
-	cursor: pointer !important;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	border-bottom-left-radius: 2px !important;
+	border-bottom-right-radius: 2px !important;
+	border-top-left-radius: 2px !important;
+	border-top-right-radius: 2px !important;
+	border-width: 1px !important;
 	display: block;
 	outline-style: none !important;
 	padding: 0px !important;
@@ -605,64 +400,11 @@
 	text-align: Center;
 }
 
-.c_Button2
+.c_Button14:not(:hover), .c_Button14.RadButton.rbButton.rbDisabled
 {
-	width: 32px;
-	height: 32px;
-	background-image: url('../Images/Imagens padrão/Save.png') !important;
-	background-position: center;
-	background-repeat: no-repeat !Important;
-	cursor: pointer !important;
-	display: block;
-	outline-style: none !important;
-	padding: 0px !important;
-	padding: 0px 10px 0px 10px !important;
-	text-align: Center;
-}
-
-.c_Button3
-{
-	width: 32px;
-	height: 32px;
-	background-image: url('../Images/Imagens padrão/Cancel.png') !important;
-	background-position: center;
-	background-repeat: no-repeat !Important;
-	cursor: pointer !important;
-	display: block;
-	outline-style: none !important;
-	padding: 0px !important;
-	padding: 0px 10px 0px 10px !important;
-	text-align: Center;
-}
-
-.c_Button4
-{
-	width: 32px;
-	height: 32px;
-	background-image: url('../Images/Imagens padrão/Delete.png') !important;
-	background-position: center;
-	background-repeat: no-repeat !Important;
-	cursor: pointer !important;
-	display: block;
-	outline-style: none !important;
-	padding: 0px !important;
-	padding: 0px 10px 0px 10px !important;
-	text-align: Center;
-}
-
-.c_Button10
-{
-	width: 32px;
-	height: 32px;
-	background-image: url('../Images/Imagens padrão/Edit.png') !important;
-	background-position: center;
-	background-repeat: no-repeat !Important;
-	cursor: pointer !important;
-	display: block;
-	outline-style: none !important;
-	padding: 0px !important;
-	padding: 0px 10px 0px 10px !important;
-	text-align: Center;
+	background-color: #FFFFFF;
+	border-color: #CCCCCC;
+	color: #292828 !important;
 }
 
 .c_LayoutCol24
@@ -707,9 +449,9 @@
 
 .c_Button13:not(:hover), .c_Button13.RadButton.rbButton.rbDisabled
 {
-	background-color: #FFFFFF;
+	background-color: #337AB7;
 	border-color: #CCCCCC;
-	color: #292828 !important;
+	color: #FFFFFF !important;
 }
 
 .c_LayoutRow4
@@ -735,7 +477,7 @@
 	cursor: inherit;
 	display: flex;
 	flex-direction: column;
-	padding: 0px !important;
+	padding: 0px 0px 0px 10px !important;
 }
 
 .c_labError
@@ -760,16 +502,48 @@
 	cursor: inherit;
 	display: block;
 	font-weight: 400;
-	line-height: 14px;
+	line-height: 12px;
 	Padding-right: 0px;
 	text-align: Left;
 	width: calc(100% - var(--mleft) - var(--mright)) !important;
 	word-wrap: normal;
 }
+
+.c_RadTextBox1
+{
+	font-family: 'Segoe UI' !important;
+	font-size: 14px !important;
+	background-color: #F7F7F7 !important;
+	display:none !important;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	outline-style: none !important;
+}
+
+.c_RadTextBox1_wrapper
+{
+	position: absolute !important;
+	left: 21px;
+	top: 732px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	display: none;
+}
 /*		Hover style		*/
 
 
-.c_Button13:hover
+.c_Button14:hover
+{
+	background-color: #FFFFFF !important;
+	border-color: #CCCCCC !important;
+	color: #292828 !important;
+}
+
+.c_Button14:hover
 {
 	background-color: #FFFFFF !important;
 	border-color: #CCCCCC !important;
@@ -778,7 +552,14 @@
 
 .c_Button13:hover
 {
-	background-color: #FFFFFF !important;
+	background-color: #337AB7 !important;
 	border-color: #CCCCCC !important;
-	color: #292828 !important;
+	color: #FFFFFF !important;
+}
+
+.c_Button13:hover
+{
+	background-color: #337AB7 !important;
+	border-color: #CCCCCC !important;
+	color: #FFFFFF !important;
 }

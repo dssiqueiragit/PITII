@@ -379,7 +379,7 @@
 						<td>True</td>
 						<td>False</td>
 						<td>0</td>
-						<td>@a</td>
+						<td>@a@A</td>
 						<td></td>
 					<tr>
 				</table>
@@ -521,16 +521,6 @@
 							<tr><th>Campo do índice: </th><td>Código</td></tr>
 					</table>
 					<br/>
-				<h3 style="margin-left:50px; margin-bottom:0px">Campos Relacionados</h3>
-						<table style="margin-left:70px">
-						<tr><th>Relacionamento: </th><td>TB_PRODUTO-TB_VENDA_ITEM</td></tr>			
-							<tr><th>Cardinalidade: </th><td>1-N</td></tr>
-							<tr><th>Tipo de Relacionamento: </th><td>Constraint</td></tr>
-							<tr><th>Tabela Estrangeira: </th><td>TB_VENDA_ITEM</td></tr>
-							<tr><th>Campo base: </th><td>ID_PRODUTO</td></tr>
-							<tr><th>Campo da tabela estrangeira: </th><td>ID_PRODUTO</td></tr>
-						</table>
-						<br/>
 			  <h3 style="margin-left:40px; margin-bottom:0px">Tabela: <span>TB_VENDA</span></h3>
 				<h3 style="margin-left:50px; margin-bottom:0px" >Campo</h3>
 				 <table style="margin-left:70px">
@@ -606,7 +596,7 @@
 						<td>decimal</td>
 						<td>10</td>
 						<td>2</td>
-						<td>True</td>
+						<td>False</td>
 						<td>False</td>
 						<td>0</td>
 						<td>99999999,99</td>
@@ -617,7 +607,7 @@
 						<td>ENTREGA_VENDA</td>
 						<td>Entrega</td>
 						<td>varchar</td>
-						<td>10</td>
+						<td>40</td>
 						<td>0</td>
 						<td>False</td>
 						<td>False</td>
@@ -626,11 +616,24 @@
 						<td></td>
 					<tr>
 					<tr>
-						<td></td>
+						<td>Significa que está no carrinho de compras.</td>
 						<td>PENDENTE_VENDA</td>
 						<td>PENDENTE_VENDA</td>
 						<td>bit</td>
 						<td>10</td>
+						<td>0</td>
+						<td>True</td>
+						<td>False</td>
+						<td>0</td>
+						<td></td>
+						<td>True</td>
+					<tr>
+					<tr>
+						<td></td>
+						<td>TIPO_PGTO_VENDA</td>
+						<td>TIPO_PGTO_VENDA</td>
+						<td>varchar</td>
+						<td>40</td>
 						<td>0</td>
 						<td>True</td>
 						<td>False</td>
@@ -755,6 +758,16 @@
 							<tr><th>Campo do índice: </th><td>ID_VENDA_ITEM</td></tr>
 					</table>
 					<br/>
+				<h3 style="margin-left:50px; margin-bottom:0px">Campos Relacionados</h3>
+						<table style="margin-left:70px">
+						<tr><th>Relacionamento: </th><td>TB_VENDA_ITEM-TB_PRODUTO</td></tr>			
+							<tr><th>Cardinalidade: </th><td>1-1</td></tr>
+							<tr><th>Tipo de Relacionamento: </th><td>Constraint</td></tr>
+							<tr><th>Tabela Estrangeira: </th><td>TB_PRODUTO</td></tr>
+							<tr><th>Campo base: </th><td>ID_PRODUTO</td></tr>
+							<tr><th>Campo da tabela estrangeira: </th><td>ID_PRODUTO</td></tr>
+						</table>
+						<br/>
 
 					<h3 style="margin-left:40px; margin-bottom:0px">View</h3>
 </div>             

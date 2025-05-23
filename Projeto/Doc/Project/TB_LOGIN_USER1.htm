@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Usuário de login</title>
+<link rel="stylesheet" type="text/css" href="../css/StyleDoc.css" />
+</head>
+
+<body>
+<div class="properties">
+    <h2> Título: <span>Usuário de login</span></h2>	
+    <table>
+      <tr><th>Nome: </th><td>DataPageModule</td></tr>
+      <tr><th>Descrição</th><td>Página de Dados referente à tabela TB_LOGIN_USER</td></tr>				
+      <tr><th>Permite Inclusão: </th><td>True</td></tr>
+      <tr><th>Permite Edição: </th><td>True</td></tr>
+      <tr><th>Permite Deleção: </th><td>True</td></tr>
+      <tr><th>Banco de Dados: </th><td>DbCupcake</td></tr>
+      <tr><th>Tabela Básica: </th><td>TB_LOGIN_USER</td></tr>
+      <tr><th>Provider: </th><td>TB_LOGIN_USER1</td></tr>
+      <tr><th>Index: </th><td>Por login</td></tr>
+    </table>
+   
+       <h3>Campos</h3>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_LOGIN</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_LOGIN</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(LOGIN_USER_LOGIN))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Login não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>txtLoginPassword</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_PASSWORD</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(LOGIN_USER_PASSWORD))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Senha não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_NAME</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_NAME</td></tr>
+      <tr><th>Validação: </th><td>{ClientValidation =(CheckNotEmpty(LOGIN_USER_NAME))}</td></tr>	
+      <tr><th>Mensagem: </th><td>Nome do usuário não pode ser vazio!</td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_ENDERECO</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_ENDERECO</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_NUM</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_NUM</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_COMPL</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_COMPL</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_BAIRRO</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_BAIRRO</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_CIDADE</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_CIDADE</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_CEP</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_CEP</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_EMAIL</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_EMAIL</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_CEL</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_CEL</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+	<table>
+      <tr><th>Nome: </th><td>RadTextBox_LOGIN_USER_OBS</td></tr>
+      <tr><th>Campo Relacionado: </th><td>LOGIN_USER_OBS</td></tr>
+      <tr><th>Validação: </th><td></td></tr>	
+      <tr><th>Mensagem: </th><td></td></tr>
+	</table>
+	</br>
+</div>
+
+	<div class="properties">                 
+		<h3>Processos:</h3>
+		<table>
+		  <tr><th>Título: </th><td>IncluirGrupo</td></tr>	
+		  <tr><th>Condição Direta: </th><td></td></tr>	
+		  <tr><th>Formula Direta: </th><td>CLIENTES</td></tr>
+		  <tr><th>Executa Processo antes de Salvar: </th><td>True</td></tr>	
+		  <tr><th>Condição Inversa: </th><td></td></tr>	
+		  <tr><th>Formula Inversa: </th><td></td></tr>
+		  <tr><th>Campo Alvo: </th><td>LOGIN_GROUP_NAME</td></tr>
+		</table>
+		</br>
+	</div>
+</body>
+</html>

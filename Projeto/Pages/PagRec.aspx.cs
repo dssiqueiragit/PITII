@@ -99,6 +99,26 @@ namespace PROJETO.DataPages
 		
 
 		/// <summary>
+		/// Define os Parâmetros para acesso às tabelas auxiliares
+		/// </summary>
+		public override void SetParametersValues(GeneralDataProvider Provider)
+		{
+			try
+			{
+				if (Provider == PageProvider.AUX_TB_VENDAProvider && Provider.IndexName == "PK_TB_VENDA")
+				{
+					if (PageProvider.MainProvider.DataProvider.Item != null)
+					{
+						Provider.Parameters["ID_VENDA"].Parameter.SetValue(Utility.FixValue<double>(PageProvider.MainProvider.DataProvider.Item["ID_VENDA"].GetValue()));
+					}
+				}
+			}
+			catch
+			{
+			}
+		}
+
+		/// <summary>
 		/// Carrega os objetos de Item de acordo com os controles
 		/// </summary>
 		public override void UpdateItemFromControl(GeneralDataProviderItem  Item)
@@ -200,6 +220,25 @@ namespace PROJETO.DataPages
 		public override void ShowInitialValues()
 		{
 			DatePicker_DATA_CR.SelectedDate = DateTime.Parse(EnvironmentVariable.ActualDateTime.ToString("dd/MM/yyyy"));
+			try
+			{
+				SelectComboItem(ComboBox_LOGIN_USER_LOGIN, PageProvider.ComboBox_LOGIN_USER_LOGINProvider, EnvironmentVariable.LoggedLoginUser.ToString().ToString());
+			}
+			catch (Exception e)
+			{
+				ComboBox_LOGIN_USER_LOGIN.SelectedValue = "";
+				ComboBox_LOGIN_USER_LOGIN.Text = "";
+			}
+			try
+			{
+				ComboBox1.SelectedValue = ("2").ToString();
+				ComboBox1.Text = "PIX";
+			}
+			catch (Exception e)
+			{
+				ComboBox1.SelectedValue = "";
+				ComboBox1.Text = "";
+			}
 		}
 
 		public override void PageEdit()
@@ -463,6 +502,32 @@ namespace PROJETO.DataPages
 			PageProvider.AliasVariables.Add("VALOR_CRField", VALOR_CRField);
 			PageProvider.AliasVariables.Add("BasePage", this);
         }
+
+		protected void ___Button11_OnClick(object sender, EventArgs e)
+		{
+			bool ActionSucceeded_1 = true;
+			try
+			{
+				PageProvider.ExecuteSingleProcess("Recebido");
+			}
+			catch (Exception ex)
+			{
+				ActionSucceeded_1 = false;
+				PageErrors.Add("Error", ex.Message);
+				ShowErrors();
+			}
+			bool ActionSucceeded_2 = true;
+			try
+			{
+				PageProvider.ExecuteSingleProcess("Pendente");
+			}
+			catch (Exception ex)
+			{
+				ActionSucceeded_2 = false;
+				PageErrors.Add("Error", ex.Message);
+				ShowErrors();
+			}
+		}
 
 
 

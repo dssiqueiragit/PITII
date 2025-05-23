@@ -60,6 +60,7 @@ namespace PROJETO.DataProviders
 			if (AllFields || Contains(FieldNames, "TOTAL_VENDA")) NewFields.Add("TOTAL_VENDA", new DecimalField("TOTAL_VENDA", "", null, true));
 			if (AllFields || Contains(FieldNames, "ENTREGA_VENDA")) NewFields.Add("ENTREGA_VENDA", new TextField("ENTREGA_VENDA", "", null, true));
 			if (AllFields || Contains(FieldNames, "PENDENTE_VENDA")) NewFields.Add("PENDENTE_VENDA", new BooleanField("PENDENTE_VENDA", "", null, true));
+			if (AllFields || Contains(FieldNames, "TIPO_PGTO_VENDA")) NewFields.Add("TIPO_PGTO_VENDA", new TextField("TIPO_PGTO_VENDA", "", null, true));
 			
 			if (!AllFields)
 			{
