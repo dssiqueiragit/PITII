@@ -13,8 +13,8 @@
 	</telerik:RadStyleSheetManager>
 	<telerik:RadCodeBlock ID="HeaderCodeBlock" runat="server">
 		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/animate.min.css") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>
-		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250523015019") %>" type="text/css" media="screen" title="no title"/>  	
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/bootstrap5.min.css??sv=4.0_20250523023112") %>" type="text/css" media="screen" title="no title"/>
+		<link rel="stylesheet" href="<%= ResolveUrl("~/Styles/all.min.css??sv=4.0_20250523023112") %>" type="text/css" media="screen" title="no title"/>  	
 	</telerik:RadCodeBlock>
 </head>
 <body onload="InitializeClient();" id="Form1_body" style="margin-left:auto;margin-right:auto;">
@@ -23,15 +23,15 @@
 
 
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.js") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.min.js??sv=4.0_20250523015019") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.global.js??sv=4.0_20250523015019") %>" ></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250523015019") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.min.js??sv=4.0_20250523023112") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/jquery.mask.global.js??sv=4.0_20250523023112") %>" ></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/bootstrap5.bundle.min.js??sv=4.0_20250523023112") %>" ></script>
 		<script type="text/javascript" src="<%= ResolveUrl("~/JS/wow.min.js") %>" ></script>
 		<script type="text/javascript"> new WOW().init(); </script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Page.js??sv=4.0_20250523015019") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250523015019") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250523015019") %>"></script>
-		<script type="text/javascript" src="<%= ResolveUrl("~/JS/sucesso_USER.js??sv=4.0_20250523015019") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Page.js??sv=4.0_20250523023112") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Common.js??sv=4.0_20250523023112") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/Functions.js??sv=4.0_20250523023112") %>"></script>
+		<script type="text/javascript" src="<%= ResolveUrl("~/JS/sucesso_USER.js??sv=4.0_20250523023112") %>"></script>
 
 		<script type="text/javascript">
 			function OnLoginSucceded()
